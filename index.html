@@ -2,16 +2,16 @@
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Rota da Picanha</title>
-<meta name="description" content="Por que a picanha custa o que custa: ciclo do boi, dólar, exportação e China, o que o governo controla e o que não controla, Brasil × Japão em horas de trabalho, e quem produz a comida do país.">
+<meta name="description" content="Por que a picanha custa o que custa: ciclo do boi, dólar, exportação e China, o que o governo controla e o que não controla, quanto trabalho custa um quilo e quem produz a comida do país.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <style>
 /* Layout: the Rotas skeleton (condensed Archivo, Source Serif, JetBrains Mono). The Picanha's own colour is chimichurri green.
-   Order: hero → the promise and the price (IPCA by government, buying power) → which ruler you use → who sets the price (mechanism) → what the government did → Brazil × Japan in work hours → who grows the food → myths → verdict. */
+   Order: hero → the promise and the price (IPCA by government, buying power) → which ruler you use → who sets the price (mechanism) → what the government did → work hours per kg → who grows the food → myths → verdict. */
 :root{
   --bg:#f1f0ea; --paper:#fbfaf6; --ink:#1c1d18; --muted:#5d5f55; --line:#d7d5c9; --soft:#e8e6dc;
   --accent:#4f6b17; --accent-soft:#e6eccf;
-  --lula:#2a78d6; --bolso:#eda100; --jp:#d63a5a;
+  --lula:#2a78d6; --bolso:#eda100;
   --ok:#1f6b45; --ok-soft:#dcefe3; --no:#a12a2a; --no-soft:#f6dede; --part:#7a5a00; --part-soft:#f6ebc9;
   --display:"Archivo","Arial Narrow",Impact,sans-serif;
   --ui:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -21,12 +21,12 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#13140f; --paper:#1b1c17; --ink:#ecebe3; --muted:#a5a798; --line:#2f3129; --soft:#25271f;
   --accent:#a9c95a; --accent-soft:#263016;
-  --lula:#3987e5; --bolso:#c98500; --jp:#e0607d;
+  --lula:#3987e5; --bolso:#c98500;
   --ok:#7fd3a3; --ok-soft:#173326; --no:#f19b9b; --no-soft:#3a1c1c; --part:#e8c25a; --part-soft:#3a3016; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#13140f; --paper:#1b1c17; --ink:#ecebe3; --muted:#a5a798; --line:#2f3129; --soft:#25271f;
   --accent:#a9c95a; --accent-soft:#263016;
-  --lula:#3987e5; --bolso:#c98500; --jp:#e0607d;
+  --lula:#3987e5; --bolso:#c98500;
   --ok:#7fd3a3; --ok-soft:#173326; --no:#f19b9b; --no-soft:#3a1c1c; --part:#e8c25a; --part-soft:#3a3016; color-scheme:dark}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -128,7 +128,7 @@ footer{padding-block:44px 60px;color:var(--muted);font-size:14px;display:grid;ga
 <header class="wrap">
   <div class="kicker">Rota da Picanha · Por que a carne custa o que custa</div>
   <h1>Picanha</h1>
-  <p class="lede">Em 2022, Lula prometeu “picanha e cervejinha”. Hoje, uns dizem que ele não cumpriu, outros que a carne nunca esteve tão acessível. Aqui está quanto a picanha subiu em cada governo, quem de fato decide o preço e quem produz a comida que chega à mesa.</p>
+  <p class="lede">Em 2022, Lula prometeu “picanha e cervejinha”. Hoje, uns dizem que ele não cumpriu, outros que a carne nunca esteve tão acessível. Aqui está quanto a picanha subiu em cada governo, quem de fato decide o preço, quanto trabalho custa um quilo e quem produz a comida que chega à mesa.</p>
   <div class="cut" aria-hidden="true">
     <svg viewBox="0 0 160 70"><path d="M8 52 C 20 18, 70 6, 118 14 C 140 18, 154 30, 152 44 C 150 56, 130 62, 100 60 L 20 60 C 12 60, 6 57, 8 52 Z" fill="var(--paper)" stroke="var(--ink)" stroke-width="2.5"/><path d="M14 46 C 40 22, 90 16, 146 34" fill="none" stroke="var(--accent)" stroke-width="7" stroke-linecap="round" opacity=".85"/><path d="M40 60 L 52 26 M70 60 L 82 18 M100 60 L 110 20" stroke="var(--line)" stroke-width="2" stroke-dasharray="3 4"/></svg>
     <span class="tag-line">A capa de gordura em cima, a carne embaixo. E o preço decidido em boa parte lá fora.</span>
@@ -198,14 +198,14 @@ footer{padding-block:44px 60px;color:var(--muted);font-size:14px;display:grid;ga
   <p class="sub">O que nenhum governo controla sozinho: o ciclo do boi, o preço internacional, a demanda da China e o clima. O dólar o governo influencia, mas não decide.</p>
 </section>
 
-<section aria-labelledby="h-jp">
-  <h2 id="h-jp">Brasil × Japão em horas de trabalho</h2>
-  <p class="sub">Comparar o preço em reais e em ienes engana, porque os salários são diferentes. A régua justa é quantas horas de salário mínimo pagam 1 kg.</p>
+<section aria-labelledby="h-horas">
+  <h2 id="h-horas">Quanto trabalho custa 1 kg</h2>
+  <p class="sub">Preço em reais sozinho engana, porque o salário também muda. A régua mais justa é quantas horas de salário mínimo pagam 1 kg de picanha.</p>
   <div class="card hours">
-    <div class="hrow" style="--c:var(--accent)"><div class="lab">Brasil<span>R$ 60,70/kg ÷ R$ 7,37/h</span></div><div class="clock" id="clk-br" role="img" aria-label="8,2 horas de trabalho"></div><span class="mono">8,2 horas de salário mínimo</span></div>
-    <div class="hrow" style="--c:var(--jp)"><div class="lab">Japão (Tóquio)<span>¥ 4.580/kg ÷ ¥ 1.280/h</span></div><div class="clock" id="clk-jp" role="img" aria-label="3,6 horas de trabalho"></div><span class="mono">3,6 horas de salário mínimo</span></div>
-    <p style="font-size:15px;color:var(--muted)">Cálculo nosso. Brasil: preço médio em notas fiscais de abril de 2026 e salário mínimo de R$ 1.621 por 220 horas. Japão: picanha australiana de 1 kg numa loja brasileira online e o salário mínimo de Tóquio, o mais alto do país. Em reais a picanha do Japão costuma ser mais cara; em horas de trabalho, sai mais barata.</p>
-    <span class="src"><a href="https://centraldovarejo.com.br/picanha-cai-26-e-churrasco-fica-mais-barato-para-o-brasileiro-em-2026/" target="_blank" rel="noopener">Neogrid: preço no Brasil</a><a href="https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/" target="_blank" rel="noopener">CNN: salário mínimo de R$ 1.621</a><a href="https://store.shopping.yahoo.co.jp/brasil-store/pic001.html" target="_blank" rel="noopener">Brasil Store (Japão)</a><a href="https://www.nippon.com/en/news/yjj2026090300788/" target="_blank" rel="noopener">Nippon.com: salário mínimo</a></span>
+    <div class="hrow" style="--c:var(--ok)"><div class="lab">No varejo<span>R$ 60,70/kg ÷ R$ 7,37/h · abr 2026</span></div><div class="clock" id="clk-v" role="img" aria-label="8,2 horas de trabalho"></div><span class="mono">8,2 horas de salário mínimo</span></div>
+    <div class="hrow" style="--c:var(--no)"><div class="lab">No atacado<span>R$ 72,38/kg ÷ R$ 7,37/h · jun 2026</span></div><div class="clock" id="clk-a" role="img" aria-label="9,8 horas de trabalho"></div><span class="mono">9,8 horas de salário mínimo</span></div>
+    <p style="font-size:15px;color:var(--muted)">Cálculo nosso, com o salário mínimo de R$ 1.621 dividido por 220 horas no mês. Ou seja: um dia inteiro de trabalho, ou um pouco mais, para levar 1 kg de picanha. O preço varia muito de região para região e de mês para mês.</p>
+    <span class="src"><a href="https://centraldovarejo.com.br/picanha-cai-26-e-churrasco-fica-mais-barato-para-o-brasileiro-em-2026/" target="_blank" rel="noopener">Neogrid: preço no varejo</a><a href="https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/" target="_blank" rel="noopener">CNN: atacado e salário mínimo</a></span>
   </div>
 </section>
 
@@ -256,7 +256,7 @@ footer{padding-block:44px 60px;color:var(--muted);font-size:14px;display:grid;ga
 (function(){
 // clocks: one circle per hour, last one partial
 const clock=(id,h)=>{const el=document.getElementById(id);let s='';for(let i=0;i<Math.floor(h);i++)s+='<i></i>';const r=h-Math.floor(h);if(r>0)s+=`<i class="part" style="--p:${Math.round(r*100)}"></i>`;el.innerHTML=s};
-clock('clk-br',8.2);clock('clk-jp',3.6);
+clock('clk-v',8.2);clock('clk-a',9.8);
 // family farming shares
 const SH=[["Mandioca",70],["Leite",64.2],["Suínos (cabeças)",51.4],["Café",38],["Bovinos (cabeças)",31],["Feijão",23],["Valor total",23]];
 document.getElementById('share').innerHTML=SH.map(r=>`<div class="r"><span>${r[0]}</span><span class="t"><span class="f" style="width:${r[1]}%"></span></span><b>${String(r[1]).replace('.',',')}%</b></div>`).join('');
