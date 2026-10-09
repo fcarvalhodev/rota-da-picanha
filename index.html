@@ -105,6 +105,28 @@ section{padding-block:48px 8px;gap:18px}
 .share .f{position:absolute;inset:0 auto 0 0;background:var(--accent);border-radius:2px}
 .share b{text-align:right}
 
+
+/* visuals */
+:root{--exp:#eb6834;--cn:#c2410c}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--exp:#d95926;--cn:#f08a5d}}
+:root[data-theme="dark"]{--exp:#d95926;--cn:#f08a5d}
+.stack{display:flex;height:34px;border-radius:3px;overflow:hidden;font-family:var(--mono);font-size:12.5px;font-weight:600}
+.stack span{display:flex;align-items:center;padding:0 10px;color:#fff;white-space:nowrap;overflow:hidden}
+.stack.small{height:24px;font-size:11.5px}
+.legend2{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.legend2 i{display:inline-block;width:12px;height:12px;border-radius:2px;background:var(--c);margin-right:6px;vertical-align:-1px}
+.minis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.mini{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:14px 16px;display:grid;gap:8px;align-content:start}
+.mini h3{font-size:15.5px}
+.mrow{display:grid;grid-template-columns:minmax(0,1fr);gap:3px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.mrow .t{height:14px;background:var(--soft);border-radius:2px;position:relative}
+.mrow .f{position:absolute;inset:0 auto 0 0;background:var(--c);border-radius:2px}
+.mrow b{font-size:15px;color:var(--ink);font-weight:600}
+.mini p{font-size:14px;color:var(--muted)}
+.cycle svg{width:100%;height:auto;display:block}
+.cycle svg text{font-family:var(--mono);font-size:18px;fill:var(--ink)}
+.cycle svg text.m{fill:var(--muted);font-size:17px}
+.cycle svg text.h{font-family:var(--ui);font-weight:700;font-size:23px}
 /* tags + myths */
 .tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:2px;font-weight:500;line-height:1.4;white-space:nowrap}
 .tag.ok{background:var(--ok-soft);color:var(--ok);border:1px solid var(--ok)}
@@ -185,11 +207,36 @@ footer{padding-block:44px 60px;color:var(--muted);font-size:14px;display:grid;ga
     </ol>
   </div>
   <span class="src"><a href="https://www.portaldoagronegocio.com.br/pecuaria/bovinos-de-corte/noticias/producao-de-carne-bovina-nao-acompanha-crescimento-das-exportacoes-aponta-cepea" target="_blank" rel="noopener">Cepea: exportação e oferta interna</a><a href="https://tribunademinas.com.br/noticias/economia/30-04-2026/carne-bovina-preco-recorde.html" target="_blank" rel="noopener">Tribuna de Minas: arroba recorde</a></span>
+  <div class="card">
+    <h3>Para onde foi a carne produzida</h3>
+    <div class="stack" role="img" aria-label="71,3% ficou no Brasil, 28,7% foi exportada"><span style="width:71.3%;background:var(--accent)">71,3% no Brasil</span><span style="width:28.7%;background:var(--exp)">28,7% fora</span></div>
+    <p style="font-size:15px;color:var(--muted)">Primeiro semestre de 2025, recorde da série. Um ano antes, a fatia exportada era de 25,1%.</p>
+    <h3 style="margin-top:4px">E da carne exportada, quem comprou</h3>
+    <div class="stack small" role="img" aria-label="China 51%, outros 49%"><span style="width:51%;background:var(--cn)">China 51%</span><span style="width:49%;background:var(--muted)">outros países 49%</span></div>
+    <p style="font-size:15px;color:var(--muted)">Janeiro a maio de 2026.</p>
+    <span class="src"><a href="https://www.portaldoagronegocio.com.br/pecuaria/bovinos-de-corte/noticias/producao-de-carne-bovina-nao-acompanha-crescimento-das-exportacoes-aponta-cepea" target="_blank" rel="noopener">Cepea</a><a href="https://gazetadoparana.com.br/artigo/preco-da-carne-bovina-sobe-em-2026-e-picanha-acumula-alta-de-mais-de-10-no-semestre" target="_blank" rel="noopener">Gazeta do Paraná</a></span>
+  </div>
+  <div class="card cycle">
+    <h3>O ciclo do boi, em um desenho</h3>
+    <svg viewBox="0 0 640 300" role="img" aria-label="Ciclo do boi: boi caro, pecuarista segura as vacas; sobra gado e abate de vacas em 2023 e 2024; falta gado em 2026; o ciclo se repete">
+      <line x1="30" y1="165" x2="620" y2="165" stroke="var(--line)" stroke-dasharray="5 6"/>
+      <text class="m" x="620" y="155" text-anchor="end">preço médio</text>
+      <path d="M30 100 C 110 100, 150 230, 230 230 S 350 100, 430 100 S 550 230, 620 190" fill="none" stroke="var(--accent)" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="80" cy="104" r="10" fill="var(--no)"/><text class="h" x="40" y="46">Boi caro</text><text class="m" x="40" y="72">seguram as vacas</text>
+      <circle cx="230" cy="230" r="10" fill="var(--ok)"/><text class="h" x="170" y="270">Sobra gado</text><text class="m" x="128" y="294">abate de vacas, 2023–24</text>
+      <circle cx="430" cy="100" r="10" fill="var(--no)"/><text class="h" x="378" y="46">Falta gado</text><text class="m" x="352" y="72">menos bezerros, 2026</text>
+      <path d="M572 206 l 16 -14 l 4 20 z" fill="var(--accent)"/>
+      <text class="m" x="470" y="270">e tudo se repete</text>
+    </svg>
+    <p style="font-size:15px;color:var(--muted)">Cada volta leva alguns anos, porque uma vaca leva tempo para gerar bezerros que viram boi pronto. Nenhum governo acelera isso.</p>
+    <span class="src"><a href="https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/" target="_blank" rel="noopener">CNN Brasil</a></span>
+  </div>
   <div class="grid3">
-    <div class="card"><span class="who" style="--c:var(--muted)">Mercado</span><h3>O ciclo do boi</h3><p>Com o boi caro, o pecuarista segura as vacas para ter bezerros. Anos depois sobra gado, o preço cai e ele abate as vacas. Em 2023 e 2024 o abate de fêmeas bateu recorde e a carne ficou barata. Agora o ciclo virou: há menos gado e o preço sobe.</p><span class="src"><a href="https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/" target="_blank" rel="noopener">CNN Brasil</a></span></div>
     <div class="card"><span class="who" style="--c:var(--muted)">Mercado</span><h3>China e exportação</h3><p>A China comprou cerca de metade da carne exportada. Em 2026, antes da cota chinesa estourar, os frigoríficos correram para embarcar, o que tirou carne do mercado interno.</p><span class="src"><a href="https://gazetadoparana.com.br/artigo/preco-da-carne-bovina-sobe-em-2026-e-picanha-acumula-alta-de-mais-de-10-no-semestre" target="_blank" rel="noopener">Gazeta do Paraná</a></span></div>
     <div class="card"><span class="who" style="--c:var(--muted)">Mercado e clima</span><h3>Custos e seca</h3><p>Milho, ração, energia e frete mais caros encarecem a produção. A seca estraga o pasto e reduz o gado pronto para abate.</p><span class="src"><a href="https://tribunademinas.com.br/noticias/economia/30-04-2026/carne-bovina-preco-recorde.html" target="_blank" rel="noopener">Tribuna de Minas</a></span></div>
   </div>
+<h3 style="margin-top:6px">Os sinais do mercado</h3>
+  <div class="minis"><div class="mini"><h3>Arroba do boi, recorde</h3><div class="mrow"><span>recorde de 2024</span><span class="t"><span class="f" style="--c:var(--line);width:96.0%"></span></span><b>R$ 352,65</b></div><div class="mrow"><span>abril de 2026</span><span class="t"><span class="f" style="--c:var(--no);width:100.0%"></span></span><b>R$ 367,30</b></div><p>Maior valor nominal desde 1997, quando começa a série do Cepea.</p><span class="src"><a href="https://tribunademinas.com.br/noticias/economia/30-04-2026/carne-bovina-preco-recorde.html" target="_blank" rel="noopener">Tribuna de Minas</a></span></div><div class="mini"><h3>Fatia da carne exportada</h3><div class="mrow"><span>1º sem 2024</span><span class="t"><span class="f" style="--c:var(--line);width:87.5%"></span></span><b>25,1%</b></div><div class="mrow"><span>1º sem 2025</span><span class="t"><span class="f" style="--c:var(--exp);width:100.0%"></span></span><b>28,7%</b></div><p>A exportação cresceu mais que a produção.</p><span class="src"><a href="https://www.portaldoagronegocio.com.br/pecuaria/bovinos-de-corte/noticias/producao-de-carne-bovina-nao-acompanha-crescimento-das-exportacoes-aponta-cepea" target="_blank" rel="noopener">Cepea</a></span></div><div class="mini"><h3>Picanha no atacado, corrigida</h3><div class="mrow"><span>jan 2023</span><span class="t"><span class="f" style="--c:var(--line);width:79.5%"></span></span><b>R$ 57,56</b></div><div class="mrow"><span>jun 2026</span><span class="t"><span class="f" style="--c:var(--no);width:100.0%"></span></span><b>R$ 72,38</b></div><p>Por quilo, já descontada a inflação.</p><span class="src"><a href="https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/" target="_blank" rel="noopener">CNN Brasil</a></span></div><div class="mini"><h3>Carne bovina por pessoa no ano</h3><div class="mrow"><span>pico recente</span><span class="t"><span class="f" style="--c:var(--line);width:100.0%"></span></span><b>38 kg</b></div><div class="mrow"><span>2025</span><span class="t"><span class="f" style="--c:var(--muted);width:83.9%"></span></span><b>31,9 kg</b></div><p>Com a carne cara, o brasileiro comeu cerca de 9% menos.</p><span class="src"><a href="https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/" target="_blank" rel="noopener">CNN Brasil</a></span></div></div>
   <h3 style="margin-top:6px">O que o governo fez</h3>
   <div class="grid2">
     <div class="card"><span class="who" style="--c:var(--accent)">Congresso e governo</span><h3>Carne na cesta básica, com imposto zero</h3><p>Na reforma tributária, em 2024. A emenda veio da oposição, Lula defendia a inclusão e a Câmara aprovou por 447 a 3. Vale com o novo imposto sobre consumo.</p><span class="src"><a href="https://www.agazeta.com.br/economia/camara-aprova-inclusao-da-carne-na-cesta-basica-com-aliquota-zero-0724" target="_blank" rel="noopener">A Gazeta</a></span></div>
@@ -212,6 +259,15 @@ footer{padding-block:44px 60px;color:var(--muted);font-size:14px;display:grid;ga
 <section aria-labelledby="h-comida">
   <h2 id="h-comida">Quem produz a comida</h2>
   <p class="sub">O agro grande exporta soja, milho, café e carne, cujo preço segue o dólar. A agricultura familiar pesa mais em alimentos do dia a dia. Os números do último Censo Agropecuário, de 2017:</p>
+  <div class="card">
+    <h3>Muitas propriedades, pouco valor</h3>
+    <span class="mono">Propriedades rurais</span>
+    <div class="stack" role="img" aria-label="76,8% familiares, 23,2% não familiares"><span style="width:76.8%;background:var(--accent)">76,8% familiares</span><span style="width:23.2%;background:var(--muted)">23,2%</span></div>
+    <span class="mono">Valor de tudo o que é produzido</span>
+    <div class="stack" role="img" aria-label="23% familiares, 77% não familiares"><span style="width:23%;background:var(--accent)">23%</span><span style="width:77%;background:var(--muted)">77% agro não familiar</span></div>
+    <p style="font-size:15px;color:var(--muted)">A agricultura familiar é a maioria das fazendas, mas são propriedades pequenas. O valor da produção se concentra nas grandes, que plantam soja, milho e cana para exportar.</p>
+    <span class="src"><a href="https://comprerural.com/agricultura-familiar-produz-70-dos-alimentos-brasileiros-certo-ou-errado/" target="_blank" rel="noopener">Compre Rural: Censo 2017</a></span>
+  </div>
   <div class="grid2">
     <div class="card">
       <h3>Fatia da agricultura familiar</h3>
