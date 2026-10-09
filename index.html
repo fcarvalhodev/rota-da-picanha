@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Rota da Picanha</title>
+<meta name="description" content="Por que a picanha custa o que custa: ciclo do boi, dólar, exportação e China, o que o governo controla e o que não controla, Brasil × Japão em horas de trabalho, e quem produz a comida do país.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: the Rotas skeleton (condensed Archivo, Source Serif, JetBrains Mono). The Picanha's own colour is chimichurri green.
+   Order: hero → the promise and the price (IPCA by government, buying power) → which ruler you use → who sets the price (mechanism) → what the government did → Brazil × Japan in work hours → who grows the food → myths → verdict. */
+:root{
+  --bg:#f1f0ea; --paper:#fbfaf6; --ink:#1c1d18; --muted:#5d5f55; --line:#d7d5c9; --soft:#e8e6dc;
+  --accent:#4f6b17; --accent-soft:#e6eccf;
+  --lula:#2a78d6; --bolso:#eda100; --jp:#d63a5a;
+  --ok:#1f6b45; --ok-soft:#dcefe3; --no:#a12a2a; --no-soft:#f6dede; --part:#7a5a00; --part-soft:#f6ebc9;
+  --display:"Archivo","Arial Narrow",Impact,sans-serif;
+  --ui:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --text:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#13140f; --paper:#1b1c17; --ink:#ecebe3; --muted:#a5a798; --line:#2f3129; --soft:#25271f;
+  --accent:#a9c95a; --accent-soft:#263016;
+  --lula:#3987e5; --bolso:#c98500; --jp:#e0607d;
+  --ok:#7fd3a3; --ok-soft:#173326; --no:#f19b9b; --no-soft:#3a1c1c; --part:#e8c25a; --part-soft:#3a3016; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#13140f; --paper:#1b1c17; --ink:#ecebe3; --muted:#a5a798; --line:#2f3129; --soft:#25271f;
+  --accent:#a9c95a; --accent-soft:#263016;
+  --lula:#3987e5; --bolso:#c98500; --jp:#e0607d;
+  --ok:#7fd3a3; --ok-soft:#173326; --no:#f19b9b; --no-soft:#3a1c1c; --part:#e8c25a; --part-soft:#3a3016; color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--text);font-size:17px;line-height:1.6}
+a{color:inherit;text-decoration-color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wrap{max-width:880px;margin:0 auto;padding-inline:16px}
+.kicker,.mono{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.kicker{color:var(--accent)}
+h1{font-family:var(--display);font-stretch:62%;font-weight:900;font-size:clamp(64px,17vw,170px);line-height:.84;margin:0;text-transform:uppercase;overflow-wrap:anywhere}
+h2{font-family:var(--display);font-stretch:66%;font-weight:800;font-size:clamp(34px,7vw,52px);line-height:.95;margin:0;text-transform:uppercase;text-wrap:balance}
+h3{font-family:var(--ui);font-weight:700;font-size:19px;line-height:1.2;margin:0;text-wrap:balance}
+p{margin:0}
+header,section{display:grid;grid-template-columns:minmax(0,1fr)}
+header{padding-block:40px 8px;gap:18px}
+section{padding-block:48px 8px;gap:18px}
+.lede{font-size:19px;max-width:62ch}
+.sub{color:var(--muted);max-width:62ch}
+.src{font-family:var(--mono);font-size:12px;color:var(--muted);display:flex;flex-wrap:wrap;gap:2px 14px}
+.src a{color:var(--muted)}
+.src a:hover{color:var(--accent)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:16px 18px;display:grid;gap:10px;align-content:start}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+@media (min-width:720px){.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+
+/* hero cut diagram */
+.cut{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.cut svg{width:160px;height:auto}
+.cut .tag-line{font-family:var(--mono);font-size:12px;color:var(--muted);max-width:40ch}
+
+/* bars */
+.bars{display:grid;gap:10px}
+.bar{display:grid;grid-template-columns:minmax(0,9.5em) minmax(0,1fr) 4.4em;gap:10px;align-items:center;font-family:var(--mono);font-size:13px}
+.bar .t{height:22px;background:var(--soft);border-radius:2px;position:relative}
+.bar .f{position:absolute;inset:0 auto 0 0;background:var(--c);border-radius:2px}
+.bar b{text-align:right;font-weight:600;font-size:15px}
+.bar small{display:block;color:var(--muted);font-size:11px}
+.big{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.big strong{font-family:var(--display);font-stretch:62%;font-weight:900;font-size:clamp(52px,12vw,84px);line-height:.9;color:var(--c)}
+.big span{max-width:28ch}
+
+/* rulers */
+.rulers{display:grid;gap:0;background:var(--paper);border:1px solid var(--line);border-radius:4px}
+.ruler{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 14px;padding:12px 16px;border-top:1px solid var(--line);align-items:center}
+.ruler:first-child{border-top:0}
+.ruler b{font-family:var(--ui)}
+.ruler .v{font-family:var(--display);font-stretch:66%;font-weight:800;font-size:28px;color:var(--c)}
+.ruler p{grid-column:1/-1;font-size:15px;color:var(--muted)}
+.ruler .src{grid-column:1/-1}
+
+/* mechanism flow */
+.flow{display:grid;grid-template-columns:minmax(0,1fr);gap:0;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:16px}
+.flow ol{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:f}
+.flow li{position:relative;padding:10px 0 10px 44px;counter-increment:f}
+.flow li::before{content:counter(f);position:absolute;left:0;top:8px;width:30px;height:30px;border-radius:50%;background:var(--accent);color:var(--paper);font-family:var(--mono);font-weight:600;display:grid;place-items:center}
+.flow li:not(:last-child)::after{content:"";position:absolute;left:14px;top:40px;bottom:-8px;border-left:2px dashed var(--line)}
+.flow b{font-family:var(--ui)}
+.card .n{font-family:var(--display);font-stretch:62%;font-weight:900;font-size:40px;color:var(--accent);line-height:.9}
+.card p{font-size:16px}
+.who{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:2px;justify-self:start;border:1px solid var(--c);color:var(--c)}
+
+/* japan */
+.hours{display:grid;gap:12px}
+.hrow{display:grid;grid-template-columns:minmax(0,1fr);gap:6px}
+.hrow .lab{display:flex;justify-content:space-between;gap:10px;font-family:var(--ui);font-weight:700}
+.hrow .lab span{font-family:var(--mono);font-weight:500;font-size:13px;color:var(--muted)}
+.clock{display:flex;flex-wrap:wrap;gap:4px}
+.clock i{width:26px;height:26px;border-radius:50%;background:var(--c);display:block;position:relative}
+.clock i.part{background:conic-gradient(var(--c) calc(var(--p)*1%),var(--soft) 0)}
+
+/* table for family farming */
+.share{display:grid;gap:8px}
+.share .r{display:grid;grid-template-columns:8.5em minmax(0,1fr) 3.4em;gap:10px;align-items:center;font-family:var(--mono);font-size:13px}
+.share .t{height:14px;background:var(--soft);border-radius:2px;position:relative}
+.share .f{position:absolute;inset:0 auto 0 0;background:var(--accent);border-radius:2px}
+.share b{text-align:right}
+
+/* tags + myths */
+.tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:2px;font-weight:500;line-height:1.4;white-space:nowrap}
+.tag.ok{background:var(--ok-soft);color:var(--ok);border:1px solid var(--ok)}
+.tag.no{background:var(--no-soft);color:var(--no);border:1px solid var(--no)}
+.tag.part{background:var(--part-soft);color:var(--part);border:1px solid var(--part)}
+.myths{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px}
+.myth{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:16px 18px;display:grid;gap:10px;align-content:start}
+.myth .side{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.myth .claim{font-family:var(--ui);font-weight:700;font-size:18px;line-height:1.25}
+.myth p{font-size:16px}
+.verdict{background:var(--ink);color:var(--paper);border-radius:4px;padding:22px 20px;display:grid;gap:12px}
+.verdict h2{color:var(--paper)}
+.verdict p{max-width:64ch}
+.verdict ul{margin:0;padding-left:20px;display:grid;gap:6px}
+footer{padding-block:44px 60px;color:var(--muted);font-size:14px;display:grid;gap:8px}
+</style>
+</head><body>
+
+
+<style>/* barra comum das Rotas */.rotas-bar{border-bottom:1px solid var(--line);background:var(--bg);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}.rotas-bar>div{max-width:880px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}.rotas-bar a{color:var(--muted);text-decoration:none;padding-block:2px;border-bottom:2px solid transparent}.rotas-bar a:hover{color:var(--ink)}.rotas-bar a[aria-current]{color:var(--ink);border-bottom-color:var(--accent)}.rotas-bar .rb-home{color:var(--accent);font-weight:600}.rotas-bar a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}</style><nav class="rotas-bar" aria-label="Rotas"><div><a class="rb-home" href="https://fcarvalhodev.github.io/rotas/">Rotas</a><a href="https://fcarvalhodev.github.io/rota-washington/">Washington</a><a href="https://fcarvalhodev.github.io/rota-master/">Master</a><a href="https://fcarvalhodev.github.io/rota-curitiba/">Curitiba</a><a href="https://fcarvalhodev.github.io/rota-da-fe/">Fé</a><a href="https://fcarvalhodev.github.io/rota-esplanada/">Esplanada</a><a href="https://fcarvalhodev.github.io/rota-itamaraty/">Itamaraty</a><a href="https://fcarvalhodev.github.io/rota-da-picanha/" aria-current="page">Picanha</a></div></nav>
+<header class="wrap">
+  <div class="kicker">Rota da Picanha · Por que a carne custa o que custa</div>
+  <h1>Picanha</h1>
+  <p class="lede">Em 2022, Lula prometeu “picanha e cervejinha”. Hoje, uns dizem que ele não cumpriu, outros que a carne nunca esteve tão acessível. Aqui está quanto a picanha subiu em cada governo, quem de fato decide o preço e quem produz a comida que chega à mesa.</p>
+  <div class="cut" aria-hidden="true">
+    <svg viewBox="0 0 160 70"><path d="M8 52 C 20 18, 70 6, 118 14 C 140 18, 154 30, 152 44 C 150 56, 130 62, 100 60 L 20 60 C 12 60, 6 57, 8 52 Z" fill="var(--paper)" stroke="var(--ink)" stroke-width="2.5"/><path d="M14 46 C 40 22, 90 16, 146 34" fill="none" stroke="var(--accent)" stroke-width="7" stroke-linecap="round" opacity=".85"/><path d="M40 60 L 52 26 M70 60 L 82 18 M100 60 L 110 20" stroke="var(--line)" stroke-width="2" stroke-dasharray="3 4"/></svg>
+    <span class="tag-line">A capa de gordura em cima, a carne embaixo. E o preço decidido em boa parte lá fora.</span>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section aria-labelledby="h-preco">
+  <h2 id="h-preco">A promessa e o preço</h2>
+  <p class="sub">A medida oficial de preço ao consumidor é o IPCA, do IBGE. A picanha entrou no índice em janeiro de 2020, por isso a comparação começa ali.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>Quanto a picanha subiu no IPCA</h3>
+      <div class="bars">
+        <div class="bar"><span>Bolsonaro<small>jan 2020 – dez 2022</small></span><span class="t"><span class="f" style="--c:var(--bolso);width:100%"></span></span><b>+38%</b></div>
+        <div class="bar"><span>Lula 3<small>jan 2023 – ago 2026</small></span><span class="t"><span class="f" style="--c:var(--lula);width:20.5%"></span></span><b>+7,8%</b></div>
+      </div>
+      <p>Em 36 meses de Bolsonaro, a picanha subiu cinco vezes mais que nos 44 meses de Lula até agora.</p>
+      <span class="src"><a href="https://www.bemparana.com.br/noticias/economia/alta-da-picanha-no-governo-lula-e-menor-que-no-mandato-bolsonaro/" target="_blank" rel="noopener">Folhapress/Bem Paraná: IPCA por governo</a></span>
+    </div>
+    <div class="card">
+      <h3>Quantos quilos o salário mínimo compra</h3>
+      <div class="bars">
+        <div class="bar"><span>jun 2023</span><span class="t"><span class="f" style="--c:var(--accent);width:87.4%"></span></span><b>22,8</b></div>
+        <div class="bar"><span>jun 2024</span><span class="t"><span class="f" style="--c:var(--accent);width:100%"></span></span><b>26,0</b></div>
+        <div class="bar"><span>jun 2025</span><span class="t"><span class="f" style="--c:var(--accent);width:95.4%"></span></span><b>24,8</b></div>
+        <div class="bar"><span>jun 2026</span><span class="t"><span class="f" style="--c:var(--accent);width:87.4%"></span></span><b>22,8</b></div>
+      </div>
+      <p>Pelo preço no atacado, o poder de compra subiu em 2024 e voltou ao mesmo ponto de 2023. Não piorou, mas também não melhorou.</p>
+      <span class="src"><a href="https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/" target="_blank" rel="noopener">CNN Brasil: dados da Safras & Mercado</a></span>
+    </div>
+  </div>
+  <h3 style="margin-top:6px">Depende da régua</h3>
+  <p class="sub">Cada lado escolhe o número que lhe convém. Todos estes são verdadeiros, e medem coisas diferentes.</p>
+  <div class="rulers">
+    <div class="ruler" style="--c:var(--lula)"><b>IPCA, preço ao consumidor, governo Lula</b><span class="v">+7,8%</span><p>De janeiro de 2023 a agosto de 2026. Abaixo da inflação geral do período, ou seja, em termos reais a picanha ficou mais barata.</p><span class="src"><a href="https://www.bemparana.com.br/noticias/economia/alta-da-picanha-no-governo-lula-e-menor-que-no-mandato-bolsonaro/" target="_blank" rel="noopener">Folhapress</a></span></div>
+    <div class="ruler" style="--c:var(--no)"><b>Atacado, corrigido pela inflação, desde 2023</b><span class="v">+25,7%</span><p>O quilo no atacado foi a R$ 72,38 em junho de 2026, contra R$ 57,56 em janeiro de 2023, em valores corrigidos.</p><span class="src"><a href="https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/" target="_blank" rel="noopener">CNN Brasil / Safras & Mercado</a></span></div>
+    <div class="ruler" style="--c:var(--ok)"><b>Notas fiscais do varejo, abril de 2025 a abril de 2026</b><span class="v">−25,9%</span><p>De R$ 81,86 para R$ 60,70 o quilo, segundo a Neogrid.</p><span class="src"><a href="https://centraldovarejo.com.br/picanha-cai-26-e-churrasco-fica-mais-barato-para-o-brasileiro-em-2026/" target="_blank" rel="noopener">Central do Varejo / Neogrid</a></span></div>
+    <div class="ruler" style="--c:var(--no)"><b>IPCA, primeiro semestre de 2026</b><span class="v">+10,7%</span><p>A carne voltou a subir em 2026, puxada pelo ciclo do boi e pela corrida para exportar à China antes da cota.</p><span class="src"><a href="https://gazetadoparana.com.br/artigo/preco-da-carne-bovina-sobe-em-2026-e-picanha-acumula-alta-de-mais-de-10-no-semestre" target="_blank" rel="noopener">Gazeta do Paraná / IBGE</a></span></div>
+  </div>
+</section>
+
+<section aria-labelledby="h-quem">
+  <h2 id="h-quem">Quem decide o preço da picanha</h2>
+  <p class="sub">A carne é uma commodity: o frigorífico pode vender aqui ou lá fora. Isso faz o preço daqui andar junto com o de fora.</p>
+  <div class="flow">
+    <ol>
+      <li><b>O mundo paga em dólar.</b> China, EUA e outros compram carne brasileira pelo preço internacional.</li>
+      <li><b>O dólar converte.</b> Com o dólar alto, cada quilo exportado rende mais reais ao frigorífico.</li>
+      <li><b>O frigorífico compara.</b> Só vende aqui se o preço daqui chegar perto do que receberia exportando.</li>
+      <li><b>Sobra menos para o mercado interno.</b> Em 2025, um recorde de 28,7% da carne produzida foi exportada.</li>
+      <li><b>O boi encarece.</b> A arroba bateu recorde nominal de R$ 367,30 em abril de 2026, e o preço chega ao açougue.</li>
+    </ol>
+  </div>
+  <span class="src"><a href="https://www.portaldoagronegocio.com.br/pecuaria/bovinos-de-corte/noticias/producao-de-carne-bovina-nao-acompanha-crescimento-das-exportacoes-aponta-cepea" target="_blank" rel="noopener">Cepea: exportação e oferta interna</a><a href="https://tribunademinas.com.br/noticias/economia/30-04-2026/carne-bovina-preco-recorde.html" target="_blank" rel="noopener">Tribuna de Minas: arroba recorde</a></span>
+  <div class="grid3">
+    <div class="card"><span class="who" style="--c:var(--muted)">Mercado</span><h3>O ciclo do boi</h3><p>Com o boi caro, o pecuarista segura as vacas para ter bezerros. Anos depois sobra gado, o preço cai e ele abate as vacas. Em 2023 e 2024 o abate de fêmeas bateu recorde e a carne ficou barata. Agora o ciclo virou: há menos gado e o preço sobe.</p><span class="src"><a href="https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/" target="_blank" rel="noopener">CNN Brasil</a></span></div>
+    <div class="card"><span class="who" style="--c:var(--muted)">Mercado</span><h3>China e exportação</h3><p>A China comprou cerca de metade da carne exportada. Em 2026, antes da cota chinesa estourar, os frigoríficos correram para embarcar, o que tirou carne do mercado interno.</p><span class="src"><a href="https://gazetadoparana.com.br/artigo/preco-da-carne-bovina-sobe-em-2026-e-picanha-acumula-alta-de-mais-de-10-no-semestre" target="_blank" rel="noopener">Gazeta do Paraná</a></span></div>
+    <div class="card"><span class="who" style="--c:var(--muted)">Mercado e clima</span><h3>Custos e seca</h3><p>Milho, ração, energia e frete mais caros encarecem a produção. A seca estraga o pasto e reduz o gado pronto para abate.</p><span class="src"><a href="https://tribunademinas.com.br/noticias/economia/30-04-2026/carne-bovina-preco-recorde.html" target="_blank" rel="noopener">Tribuna de Minas</a></span></div>
+  </div>
+  <h3 style="margin-top:6px">O que o governo fez</h3>
+  <div class="grid2">
+    <div class="card"><span class="who" style="--c:var(--accent)">Congresso e governo</span><h3>Carne na cesta básica, com imposto zero</h3><p>Na reforma tributária, em 2024. A emenda veio da oposição, Lula defendia a inclusão e a Câmara aprovou por 447 a 3. Vale com o novo imposto sobre consumo.</p><span class="src"><a href="https://www.agazeta.com.br/economia/camara-aprova-inclusao-da-carne-na-cesta-basica-com-aliquota-zero-0724" target="_blank" rel="noopener">A Gazeta</a></span></div>
+    <div class="card"><span class="who" style="--c:var(--accent)">Governo</span><h3>Imposto de importação zerado</h3><p>Em março de 2025, carne, café, açúcar, azeite e outros alimentos importados ficaram sem tarifa. Como o Brasil importa pouca carne, o efeito sobre a picanha tende a ser pequeno.</p><span class="src"><a href="https://diariodonordeste.verdesmares.com.br/negocios/medida-que-zera-tarifa-de-alimentos-importados-comeca-a-valer-nesta-sexta-14-confirma-governo-federal-1.3629576" target="_blank" rel="noopener">Diário do Nordeste</a></span></div>
+  </div>
+  <p class="sub">O que nenhum governo controla sozinho: o ciclo do boi, o preço internacional, a demanda da China e o clima. O dólar o governo influencia, mas não decide.</p>
+</section>
+
+<section aria-labelledby="h-jp">
+  <h2 id="h-jp">Brasil × Japão em horas de trabalho</h2>
+  <p class="sub">Comparar o preço em reais e em ienes engana, porque os salários são diferentes. A régua justa é quantas horas de salário mínimo pagam 1 kg.</p>
+  <div class="card hours">
+    <div class="hrow" style="--c:var(--accent)"><div class="lab">Brasil<span>R$ 60,70/kg ÷ R$ 7,37/h</span></div><div class="clock" id="clk-br" role="img" aria-label="8,2 horas de trabalho"></div><span class="mono">8,2 horas de salário mínimo</span></div>
+    <div class="hrow" style="--c:var(--jp)"><div class="lab">Japão (Tóquio)<span>¥ 4.580/kg ÷ ¥ 1.280/h</span></div><div class="clock" id="clk-jp" role="img" aria-label="3,6 horas de trabalho"></div><span class="mono">3,6 horas de salário mínimo</span></div>
+    <p style="font-size:15px;color:var(--muted)">Cálculo nosso. Brasil: preço médio em notas fiscais de abril de 2026 e salário mínimo de R$ 1.621 por 220 horas. Japão: picanha australiana de 1 kg numa loja brasileira online e o salário mínimo de Tóquio, o mais alto do país. Em reais a picanha do Japão costuma ser mais cara; em horas de trabalho, sai mais barata.</p>
+    <span class="src"><a href="https://centraldovarejo.com.br/picanha-cai-26-e-churrasco-fica-mais-barato-para-o-brasileiro-em-2026/" target="_blank" rel="noopener">Neogrid: preço no Brasil</a><a href="https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/" target="_blank" rel="noopener">CNN: salário mínimo de R$ 1.621</a><a href="https://store.shopping.yahoo.co.jp/brasil-store/pic001.html" target="_blank" rel="noopener">Brasil Store (Japão)</a><a href="https://www.nippon.com/en/news/yjj2026090300788/" target="_blank" rel="noopener">Nippon.com: salário mínimo</a></span>
+  </div>
+</section>
+
+<section aria-labelledby="h-comida">
+  <h2 id="h-comida">Quem produz a comida</h2>
+  <p class="sub">O agro grande exporta soja, milho, café e carne, cujo preço segue o dólar. A agricultura familiar pesa mais em alimentos do dia a dia. Os números do último Censo Agropecuário, de 2017:</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>Fatia da agricultura familiar</h3>
+      <div class="share" id="share"></div>
+      <span class="src"><a href="https://fpagropecuaria.org.br/?p=38483" target="_blank" rel="noopener">FPA: dados do Censo 2017</a><a href="https://comprerural.com/agricultura-familiar-produz-70-dos-alimentos-brasileiros-certo-ou-errado/" target="_blank" rel="noopener">Compre Rural</a></span>
+    </div>
+    <div class="card">
+      <h3>O que esses números dizem</h3>
+      <p>A agricultura familiar é 76,8% das propriedades rurais, mas 23% do valor de tudo o que se produz. É dominante na mandioca, no leite e em frutas como morango e uva, e minoria no feijão e no gado.</p>
+      <p>O MST colheu cerca de 16 mil toneladas de arroz orgânico na safra 2022/23. É pouco perto do arroz do país, mas é o maior volume orgânico da América Latina, segundo o instituto gaúcho do arroz (Irga).</p>
+      <span class="src"><a href="https://www.extraclasse.org.br/?p=90070" target="_blank" rel="noopener">Extra Classe: safra do MST</a></span>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="h-mitos">
+  <h2 id="h-mitos">O que circula × o que consta</h2>
+  <p class="sub">Frases dos dois lados, com o mesmo critério.</p>
+  <div class="myths" id="myths"></div>
+</section>
+
+<section aria-labelledby="h-ver">
+  <div class="verdict">
+    <h2 id="h-ver">Veredito</h2>
+    <p><b>O preço da picanha depende mais do boi, do dólar e da China do que de quem está no Planalto.</b></p>
+    <ul>
+      <li>Pelo IPCA, a picanha subiu 38% com Bolsonaro e 7,8% com Lula até agora. Pelo atacado corrigido, subiu 25,7% desde 2023. As duas coisas são verdade.</li>
+      <li>A promessa da picanha foi feita e, pelo salário mínimo, o poder de compra está no mesmo nível de 2023: não piorou, mas também não chegou à fartura prometida.</li>
+      <li>Carne é commodity: quase 30% vai para fora e o preço daqui acompanha o de lá. Os governos mexem em impostos, mas não no ciclo do boi.</li>
+      <li>A agricultura familiar é essencial para mandioca, leite e frutas, mas não produz 70% da comida do país.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <p>Cada item traz o link da reportagem, do índice ou do documento de onde saiu. Os cálculos de horas de trabalho são nossos, a partir das fontes citadas.</p>
+  <p>Atualizado em 9 de outubro de 2026.</p>
+</footer>
+</main>
+
+<script>
+(function(){
+// clocks: one circle per hour, last one partial
+const clock=(id,h)=>{const el=document.getElementById(id);let s='';for(let i=0;i<Math.floor(h);i++)s+='<i></i>';const r=h-Math.floor(h);if(r>0)s+=`<i class="part" style="--p:${Math.round(r*100)}"></i>`;el.innerHTML=s};
+clock('clk-br',8.2);clock('clk-jp',3.6);
+// family farming shares
+const SH=[["Mandioca",70],["Leite",64.2],["Suínos (cabeças)",51.4],["Café",38],["Bovinos (cabeças)",31],["Feijão",23],["Valor total",23]];
+document.getElementById('share').innerHTML=SH.map(r=>`<div class="r"><span>${r[0]}</span><span class="t"><span class="f" style="width:${r[1]}%"></span></span><b>${String(r[1]).replace('.',',')}%</b></div>`).join('');
+const S={
+  ipca:["Folhapress: IPCA por governo","https://www.bemparana.com.br/noticias/economia/alta-da-picanha-no-governo-lula-e-menor-que-no-mandato-bolsonaro/"],
+  cnn:["CNN Brasil: ciclo do boi","https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/"],
+  promessa:["Revista Oeste: picanha e cervejinha","https://revistaoeste.com/politica/lula-volta-a-falar-em-cervejinha-e-picanha/"],
+  cepea:["Cepea: exportação","https://www.portaldoagronegocio.com.br/pecuaria/bovinos-de-corte/noticias/producao-de-carne-bovina-nao-acompanha-crescimento-das-exportacoes-aponta-cepea"],
+  tribuna:["Tribuna de Minas","https://tribunademinas.com.br/noticias/economia/30-04-2026/carne-bovina-preco-recorde.html"],
+  censo:["Compre Rural: Censo 2017","https://comprerural.com/agricultura-familiar-produz-70-dos-alimentos-brasileiros-certo-ou-errado/"],
+  fpa:["FPA: Censo 2017","https://fpagropecuaria.org.br/?p=38483"],
+  mst:["Extra Classe","https://www.extraclasse.org.br/?p=90070"],
+  cesta:["A Gazeta: carne na cesta","https://www.agazeta.com.br/economia/camara-aprova-inclusao-da-carne-na-cesta-basica-com-aliquota-zero-0724"],
+  neogrid:["Central do Varejo / Neogrid","https://centraldovarejo.com.br/picanha-cai-26-e-churrasco-fica-mais-barato-para-o-brasileiro-em-2026/"]
+};
+const L=k=>`<a href="${S[k][1]}" target="_blank" rel="noopener">${S[k][0]}</a>`;
+const M=[
+ ["Circula contra Lula","“A picanha está cara por culpa do Lula”","no","Não consta","Os motores do preço são o ciclo do boi, a exportação recorde, a demanda da China e os custos. Pelo IPCA, a picanha subiu menos com Lula (+7,8%) do que com Bolsonaro (+38%).",["cnn","cepea","ipca"]],
+ ["Circula contra Lula","“Lula prometeu picanha e não entregou”","part","Em parte","A promessa existiu. Pelo IPCA a picanha subiu menos que a inflação, mas pelo atacado corrigido subiu 25,7% desde 2023, e o salário mínimo compra os mesmos 22,8 kg de 2023.",["promessa","ipca","cnn"]],
+ ["Circula a favor de Bolsonaro","“Com Bolsonaro a carne era barata”","no","Não consta","De janeiro de 2020 a dezembro de 2022, a picanha subiu 38% no IPCA, a maior alta entre os dois governos.",["ipca"]],
+ ["Circula a favor de Lula","“A picanha nunca esteve tão barata”","part","Em parte","No varejo caiu 25,9% entre abril de 2025 e abril de 2026, mas voltou a subir 10,7% no primeiro semestre de 2026, e no atacado, corrigido pela inflação, está 25,7% acima de 2023.",["neogrid","cnn"]],
+ ["Circula nos dois lados","“O agro vende em dólar e o brasileiro paga em dólar”","part","Em parte","Carne, soja e café seguem o preço internacional e o câmbio. Mas o preço daqui também depende da oferta interna e do ciclo do boi, e 71% da carne ainda fica no Brasil.",["cepea","tribuna"]],
+ ["Circula a favor do MST","“A agricultura familiar produz 70% da comida do Brasil”","no","Não consta","O Censo de 2017 mostra 23% do valor da produção. O número de 70% vale para a mandioca, não para a comida em geral.",["censo","fpa"]],
+ ["Circula a favor do MST","“O MST é o maior produtor de arroz orgânico da América Latina”","ok","Consta","Segundo o Irga, há mais de uma década. Foram cerca de 16 mil toneladas na safra 2022/23, de 352 famílias.",["mst"]],
+ ["Circula contra o agro","“Exportar carne deixa o brasileiro sem carne”","part","Em parte","O recorde de exportação (28,7% da produção) reduziu a oferta interna e ajudou a subir o preço, segundo o Cepea. Mas a maior parte da carne continua no país.",["cepea"]],
+ ["Circula nos dois lados","“Carne na cesta básica foi ideia da oposição”","part","Em parte","A emenda veio da oposição, mas Lula também defendia a inclusão. Foi aprovada por 447 a 3.",["cesta"]]
+];
+document.getElementById('myths').innerHTML=M.map(m=>`<article class="myth"><span class="side">${m[0]}</span><span class="claim">${m[1]}</span><div><span class="tag ${m[2]}">${m[3]}</span></div><p>${m[4]}</p><span class="src">${m[5].map(L).join('')}</span></article>`).join('');
+})();
+</script>
+
+</body></html>
