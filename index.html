@@ -92,7 +92,7 @@ section{padding-block:48px 8px;gap:18px}
 /* japan */
 .hours{display:grid;gap:12px}
 .hrow{display:grid;grid-template-columns:minmax(0,1fr);gap:6px}
-.hrow .lab{display:flex;justify-content:space-between;gap:10px;font-family:var(--ui);font-weight:700}
+.hrow .lab{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 10px;font-family:var(--ui);font-weight:700;font-size:20px}
 .hrow .lab span{font-family:var(--mono);font-weight:500;font-size:13px;color:var(--muted)}
 .clock{display:flex;flex-wrap:wrap;gap:4px}
 .clock i{width:26px;height:26px;border-radius:50%;background:var(--c);display:block;position:relative}
@@ -142,23 +142,188 @@ section{padding-block:48px 8px;gap:18px}
 .verdict p{max-width:64ch}
 .verdict ul{margin:0;padding-left:20px;display:grid;gap:6px}
 footer{padding-block:44px 60px;color:var(--muted);font-size:14px;display:grid;gap:8px}
+
+/* easy version */
+body{font-size:19px;line-height:1.7}
+h1{font-size:clamp(46px,11vw,104px);line-height:.9}
+.lg{font-size:21px;line-height:1.6}
+.answer-box{background:var(--accent-soft);border:2px solid var(--accent);border-radius:6px;padding:20px;margin-top:40px}
+.reasons{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+@media (min-width:760px){.reasons{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.reason{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:20px;display:grid;gap:12px;align-content:start}
+.reason h3{font-size:24px}
+.reason p{font-size:18px}
+.reason .note{font-size:16px;color:var(--muted)}
+.emo{font-size:56px;line-height:1}
+.cows{display:grid;gap:8px;background:var(--soft);border-radius:4px;padding:12px}
+.cows>div{display:grid;grid-template-columns:3.4em minmax(0,1fr);gap:2px 10px;align-items:center}
+.cows .yr{font-family:var(--mono);font-weight:600;font-size:15px}
+.cows .row{font-size:clamp(20px,5.6vw,30px);letter-spacing:1px;line-height:1.1;white-space:nowrap}
+.cows .gone{opacity:.18;filter:grayscale(1)}
+.cows .cap{grid-column:2;font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.plates{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:4px;font-size:clamp(22px,6vw,34px);background:var(--soft);border-radius:4px;padding:10px;text-align:center}
+.plates .out{transform:translateY(-6px);filter:hue-rotate(-20deg) saturate(.6);opacity:.55;position:relative}
+.cap2{font-size:18px}
+.choice{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:8px;align-items:center}
+.choice .opt{background:var(--soft);border-radius:6px;padding:12px;text-align:center;display:grid;gap:2px}
+.choice .opt span{font-size:34px;line-height:1}
+.choice .opt b{font-family:var(--ui);font-size:17px}
+.choice .opt small{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.choice .opt.hi{outline:3px solid var(--accent)}
+.choice .vs{font-family:var(--mono);color:var(--muted)}
+.costs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.costs li{background:var(--soft);border-radius:4px;padding:10px;font-family:var(--ui);font-weight:600;font-size:16px;display:flex;align-items:center;gap:8px}
+.costs li span{font-size:26px}
+.cando{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+@media (min-width:720px){.cando{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cando>div{border-radius:6px;padding:18px 20px;border:2px solid var(--c)}
+.cando .can{--c:var(--ok);background:var(--ok-soft)}
+.cando .cant{--c:var(--no);background:var(--no-soft)}
+.cando h3{font-size:22px;margin-bottom:6px}
+.cando ul{margin:0;padding-left:20px;display:grid;gap:8px;font-size:18px}
+.vs2{display:grid;gap:14px;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:20px}
+.who2{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:baseline}
+.who2 .nm{font-family:var(--ui);font-weight:700;font-size:20px}
+.who2 .pct{font-family:var(--display);font-stretch:62%;font-weight:900;font-size:44px;color:var(--c);line-height:1}
+.who2 .bar2{grid-column:1/-1;height:26px;background:var(--soft);border-radius:3px;overflow:hidden}
+.who2 .bar2 i{display:block;height:100%;background:var(--c)}
+.who2 small{grid-column:1/-1;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.clock i{width:34px;height:34px}
+.vf{display:grid;gap:12px}
+.vfi{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:16px 18px;display:grid;gap:8px}
+.vfi p{font-size:18px}
+.badge{justify-self:start;font-family:var(--ui);font-weight:800;font-size:15px;letter-spacing:.04em;text-transform:uppercase;padding:4px 12px;border-radius:999px}
+.badge.f{background:var(--no-soft);color:var(--no);border:2px solid var(--no)}
+.badge.m{background:var(--part-soft);color:var(--part);border:2px solid var(--part)}
+.badge.v{background:var(--ok-soft);color:var(--ok);border:2px solid var(--ok)}
+.verdict ul.lg li{font-size:20px}
+details.mais{margin-top:44px;border:2px solid var(--line);border-radius:6px;background:var(--paper)}
+details.mais>summary{cursor:pointer;padding:18px 20px;font-family:var(--ui);font-weight:700;font-size:19px;list-style:none;display:flex;justify-content:space-between;gap:12px}
+details.mais>summary::after{content:"+";font-family:var(--mono);font-size:24px;line-height:1}
+details.mais[open]>summary::after{content:"−"}
+details.mais>summary::-webkit-details-marker{display:none}
+.mais-body{padding:0 16px 20px;font-size:17px;line-height:1.6}
+.mais-body section{padding-top:32px}
 </style>
 </head><body>
 
 
 <style>/* barra comum das Rotas */.rotas-bar{border-bottom:1px solid var(--line);background:var(--bg);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}.rotas-bar>div{max-width:880px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}.rotas-bar a{color:var(--muted);text-decoration:none;padding-block:2px;border-bottom:2px solid transparent}.rotas-bar a:hover{color:var(--ink)}.rotas-bar a[aria-current]{color:var(--ink);border-bottom-color:var(--accent)}.rotas-bar .rb-home{color:var(--accent);font-weight:600}.rotas-bar a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}</style><nav class="rotas-bar" aria-label="Rotas"><div><a class="rb-home" href="https://fcarvalhodev.github.io/rotas/">Rotas</a><a href="https://fcarvalhodev.github.io/rota-washington/">Washington</a><a href="https://fcarvalhodev.github.io/rota-master/">Master</a><a href="https://fcarvalhodev.github.io/rota-curitiba/">Curitiba</a><a href="https://fcarvalhodev.github.io/rota-da-fe/">Fé</a><a href="https://fcarvalhodev.github.io/rota-esplanada/">Esplanada</a><a href="https://fcarvalhodev.github.io/rota-itamaraty/">Itamaraty</a><a href="https://fcarvalhodev.github.io/rota-da-picanha/" aria-current="page">Picanha</a></div></nav>
 <header class="wrap">
-  <div class="kicker">Rota da Picanha · Por que a carne custa o que custa</div>
-  <h1>Picanha</h1>
-  <p class="lede">Em 2022, Lula prometeu “picanha e cervejinha”. Hoje, uns dizem que ele não cumpriu, outros que a carne nunca esteve tão acessível. Aqui está quanto a picanha subiu em cada governo, quem de fato decide o preço, quanto trabalho custa um quilo e quem produz a comida que chega à mesa.</p>
-  <div class="cut" aria-hidden="true">
-    <svg viewBox="0 0 160 70"><path d="M8 52 C 20 18, 70 6, 118 14 C 140 18, 154 30, 152 44 C 150 56, 130 62, 100 60 L 20 60 C 12 60, 6 57, 8 52 Z" fill="var(--paper)" stroke="var(--ink)" stroke-width="2.5"/><path d="M14 46 C 40 22, 90 16, 146 34" fill="none" stroke="var(--accent)" stroke-width="7" stroke-linecap="round" opacity=".85"/><path d="M40 60 L 52 26 M70 60 L 82 18 M100 60 L 110 20" stroke="var(--line)" stroke-width="2" stroke-dasharray="3 4"/></svg>
-    <span class="tag-line">A capa de gordura em cima, a carne embaixo. E o preço decidido em boa parte lá fora.</span>
-  </div>
+  <div class="kicker">Rota da Picanha</div>
+  <h1>Por que a picanha não ficou barata?</h1>
+  <p class="lede lg">Em 2022, Lula prometeu “picanha e cervejinha”. Muita gente diz que a picanha continua cara. Aqui está a explicação, em palavras simples.</p>
 </header>
 
 <main class="wrap">
 
+<section class="answer-box" aria-labelledby="h-curta">
+  <h2 id="h-curta">A resposta curta</h2>
+  <p class="lg">O preço da picanha depende principalmente de <b>quanto boi existe para vender</b> e de <b>quanto o mundo paga pela carne brasileira</b>. O presidente não manda nessas duas coisas.</p>
+</section>
+
+<section aria-labelledby="h-motivos">
+  <h2 id="h-motivos">Os 4 motivos</h2>
+  <div class="reasons">
+    <article class="reason">
+      <div class="emo" aria-hidden="true">🐄</div>
+      <h3>1. Tem menos boi</h3>
+      <div class="cows" role="img" aria-label="Em 2024 havia mais vacas; em 2026 há menos">
+        <div><span class="yr">2024</span><span class="row">🐄🐄🐄🐄🐄🐄</span><span class="cap">muitas vacas foram para o abate</span></div>
+        <div><span class="yr">2026</span><span class="row">🐄🐄🐄🐄<span class="gone">🐄🐄</span></span><span class="cap">sobrou menos boi</span></div>
+      </div>
+      <p>Em 2023 e 2024, quando o boi estava barato, muitos criadores venderam as vacas. A vaca é a mãe do bezerro. Com menos mães, nasceram menos bezerros. Hoje tem menos boi para vender, e o que falta fica mais caro.</p>
+      <p class="note">Esse vaivém se chama <b>ciclo do boi</b> e leva alguns anos. Nenhum governo faz uma vaca ter bezerro mais rápido.</p>
+    </article>
+    <article class="reason">
+      <div class="emo" aria-hidden="true">🚢</div>
+      <h3>2. Muita carne vai para fora</h3>
+      <div class="plates" role="img" aria-label="De cada 10 pedaços de carne, 7 ficam no Brasil e 3 vão para fora">
+        <span>🥩</span><span>🥩</span><span>🥩</span><span>🥩</span><span>🥩</span><span>🥩</span><span>🥩</span><span class="out">🥩</span><span class="out">🥩</span><span class="out">🥩</span>
+      </div>
+      <p class="cap2">De cada 10 pedaços de carne, <b>7 ficam no Brasil</b> e <b>3 vão para fora</b>. Metade do que sai vai para a China.</p>
+      <p>Quanto mais carne vai embora, menos sobra no açougue daqui.</p>
+    </article>
+    <article class="reason">
+      <div class="emo" aria-hidden="true">💵</div>
+      <h3>3. Lá fora pagam em dólar</h3>
+      <div class="choice" role="img" aria-label="O frigorífico escolhe entre vender aqui ou vender lá fora em dólar">
+        <div class="opt"><span>🇧🇷</span><b>Vender aqui</b><small>paga em real</small></div>
+        <div class="vs">ou</div>
+        <div class="opt hi"><span>🌎</span><b>Vender lá fora</b><small>paga em dólar</small></div>
+      </div>
+      <p>O frigorífico pode vender a carne aqui ou para outro país. Se lá fora pagam mais, ele só vende aqui pelo mesmo preço. Por isso a carne daqui acompanha o preço de fora.</p>
+    </article>
+    <article class="reason">
+      <div class="emo" aria-hidden="true">🌾</div>
+      <h3>4. Criar o boi ficou mais caro</h3>
+      <ul class="costs">
+        <li><span aria-hidden="true">🌽</span>ração e milho</li>
+        <li><span aria-hidden="true">⛽</span>combustível e frete</li>
+        <li><span aria-hidden="true">⚡</span>energia</li>
+        <li><span aria-hidden="true">☀️</span>seca no pasto</li>
+      </ul>
+      <p>Tudo isso subiu. Quando custa mais criar o boi, a carne chega mais cara no açougue.</p>
+    </article>
+  </div>
+  <span class="src"><a href="https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/" target="_blank" rel="noopener">CNN Brasil: ciclo do boi</a><a href="https://www.portaldoagronegocio.com.br/pecuaria/bovinos-de-corte/noticias/producao-de-carne-bovina-nao-acompanha-crescimento-das-exportacoes-aponta-cepea" target="_blank" rel="noopener">Cepea: exportação</a><a href="https://gazetadoparana.com.br/artigo/preco-da-carne-bovina-sobe-em-2026-e-picanha-acumula-alta-de-mais-de-10-no-semestre" target="_blank" rel="noopener">Gazeta do Paraná: China</a><a href="https://tribunademinas.com.br/noticias/economia/30-04-2026/carne-bovina-preco-recorde.html" target="_blank" rel="noopener">Tribuna de Minas: custos</a></span>
+</section>
+
+<section aria-labelledby="h-gov2">
+  <h2 id="h-gov2">E o governo?</h2>
+  <div class="cando">
+    <div class="can"><h3>✅ O governo pode</h3><ul><li>Tirar imposto da carne. A carne entrou na cesta básica com imposto zero.</li><li>Tirar o imposto da carne que vem de fora.</li></ul></div>
+    <div class="cant"><h3>❌ O governo não pode</h3><ul><li>Fazer nascer mais boi de um ano para o outro.</li><li>Mandar no preço que a China paga.</li><li>Fazer chover no pasto.</li></ul></div>
+  </div>
+  <span class="src"><a href="https://www.agazeta.com.br/economia/camara-aprova-inclusao-da-carne-na-cesta-basica-com-aliquota-zero-0724" target="_blank" rel="noopener">A Gazeta: carne na cesta</a><a href="https://diariodonordeste.verdesmares.com.br/negocios/medida-que-zera-tarifa-de-alimentos-importados-comeca-a-valer-nesta-sexta-14-confirma-governo-federal-1.3629576" target="_blank" rel="noopener">Diário do Nordeste: imposto zerado</a></span>
+</section>
+
+<section aria-labelledby="h-subiu">
+  <h2 id="h-subiu">Subiu mais com quem?</h2>
+  <p class="sub lg">Pela conta oficial de preços do IBGE:</p>
+  <div class="vs2">
+    <div class="who2" style="--c:var(--bolso)"><span class="nm">Com Bolsonaro</span><span class="pct">+38%</span><span class="bar2"><i style="width:100%"></i></span><small>2020 a 2022</small></div>
+    <div class="who2" style="--c:var(--lula)"><span class="nm">Com Lula</span><span class="pct">+7,8%</span><span class="bar2"><i style="width:20.5%"></i></span><small>2023 até agosto de 2026</small></div>
+  </div>
+  <p class="lg">A picanha subiu bem menos agora. Mas também não ficou barata: o salário mínimo compra hoje a mesma quantidade de picanha que comprava em 2023.</p>
+  <span class="src"><a href="https://www.bemparana.com.br/noticias/economia/alta-da-picanha-no-governo-lula-e-menor-que-no-mandato-bolsonaro/" target="_blank" rel="noopener">Folhapress: IPCA por governo</a><a href="https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/" target="_blank" rel="noopener">CNN: poder de compra</a></span>
+</section>
+
+<section aria-labelledby="h-horas">
+  <h2 id="h-horas">Quanto tempo de trabalho paga 1 kg</h2>
+  <p class="sub lg">Quem ganha um salário mínimo precisa trabalhar mais ou menos <b>um dia inteiro</b> para comprar 1 kg de picanha. Cada bolinha é uma hora de trabalho.</p>
+  <div class="card hours">
+    <div class="hrow" style="--c:var(--ok)"><div class="lab">No varejo<span>R$ 60,70/kg ÷ R$ 7,37/h · abr 2026</span></div><div class="clock" id="clk-v" role="img" aria-label="8,2 horas de trabalho"></div><span class="mono">8,2 horas de salário mínimo</span></div>
+    <div class="hrow" style="--c:var(--no)"><div class="lab">No atacado<span>R$ 72,38/kg ÷ R$ 7,37/h · jun 2026</span></div><div class="clock" id="clk-a" role="img" aria-label="9,8 horas de trabalho"></div><span class="mono">9,8 horas de salário mínimo</span></div>
+    <p style="font-size:15px;color:var(--muted)">Cálculo nosso, com o salário mínimo de R$ 1.621 dividido por 220 horas no mês. Ou seja: um dia inteiro de trabalho, ou um pouco mais, para levar 1 kg de picanha. O preço varia muito de região para região e de mês para mês.</p>
+    <span class="src"><a href="https://centraldovarejo.com.br/picanha-cai-26-e-churrasco-fica-mais-barato-para-o-brasileiro-em-2026/" target="_blank" rel="noopener">Neogrid: preço no varejo</a><a href="https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/" target="_blank" rel="noopener">CNN: atacado e salário mínimo</a></span>
+  </div>
+</section>
+
+<section aria-labelledby="h-vf">
+  <h2 id="h-vf">É verdade?</h2>
+  <div class="vf">
+    <div class="vfi"><span class="badge f">Falso</span><p><b>“A picanha está cara por culpa do Lula.”</b> O preço depende do boi, da exportação e dos custos. E subiu menos com Lula do que com Bolsonaro.</p></div>
+    <div class="vfi"><span class="badge m">Meia verdade</span><p><b>“Lula prometeu picanha e não entregou.”</b> A promessa existiu. A picanha não ficou mais cara para quem ganha salário mínimo, mas também não ficou mais barata.</p></div>
+    <div class="vfi"><span class="badge f">Falso</span><p><b>“Com Bolsonaro a carne era barata.”</b> Foi quando a picanha mais subiu: 38%.</p></div>
+    <div class="vfi"><span class="badge m">Meia verdade</span><p><b>“Exportar carne deixa o brasileiro sem carne.”</b> Sobra menos carne aqui, mas 7 de cada 10 pedaços continuam no Brasil.</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="h-resumo">
+  <div class="verdict">
+    <h2 id="h-resumo">Resumindo</h2>
+    <ul class="lg">
+      <li>A picanha está cara porque <b>tem menos boi</b>, <b>muita carne vai para fora</b> e <b>criar boi ficou mais caro</b>.</li>
+      <li>Isso não depende só do presidente.</li>
+      <li>Com Lula ela subiu menos do que com Bolsonaro, mas ainda não ficou barata.</li>
+    </ul>
+  </div>
+</section>
+
+<details class="mais">
+  <summary>Quer ver todos os números? Toque aqui</summary>
+  <div class="mais-body">
 <section aria-labelledby="h-preco">
   <h2 id="h-preco">A promessa e o preço</h2>
   <p class="sub">A medida oficial de preço ao consumidor é o IPCA, do IBGE. A picanha entrou no índice em janeiro de 2020, por isso a comparação começa ali.</p>
@@ -245,16 +410,7 @@ footer{padding-block:44px 60px;color:var(--muted);font-size:14px;display:grid;ga
   <p class="sub">O que nenhum governo controla sozinho: o ciclo do boi, o preço internacional, a demanda da China e o clima. O dólar o governo influencia, mas não decide.</p>
 </section>
 
-<section aria-labelledby="h-horas">
-  <h2 id="h-horas">Quanto trabalho custa 1 kg</h2>
-  <p class="sub">Preço em reais sozinho engana, porque o salário também muda. A régua mais justa é quantas horas de salário mínimo pagam 1 kg de picanha.</p>
-  <div class="card hours">
-    <div class="hrow" style="--c:var(--ok)"><div class="lab">No varejo<span>R$ 60,70/kg ÷ R$ 7,37/h · abr 2026</span></div><div class="clock" id="clk-v" role="img" aria-label="8,2 horas de trabalho"></div><span class="mono">8,2 horas de salário mínimo</span></div>
-    <div class="hrow" style="--c:var(--no)"><div class="lab">No atacado<span>R$ 72,38/kg ÷ R$ 7,37/h · jun 2026</span></div><div class="clock" id="clk-a" role="img" aria-label="9,8 horas de trabalho"></div><span class="mono">9,8 horas de salário mínimo</span></div>
-    <p style="font-size:15px;color:var(--muted)">Cálculo nosso, com o salário mínimo de R$ 1.621 dividido por 220 horas no mês. Ou seja: um dia inteiro de trabalho, ou um pouco mais, para levar 1 kg de picanha. O preço varia muito de região para região e de mês para mês.</p>
-    <span class="src"><a href="https://centraldovarejo.com.br/picanha-cai-26-e-churrasco-fica-mais-barato-para-o-brasileiro-em-2026/" target="_blank" rel="noopener">Neogrid: preço no varejo</a><a href="https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/" target="_blank" rel="noopener">CNN: atacado e salário mínimo</a></span>
-  </div>
-</section>
+
 
 <section aria-labelledby="h-comida">
   <h2 id="h-comida">Quem produz a comida</h2>
@@ -289,7 +445,7 @@ footer{padding-block:44px 60px;color:var(--muted);font-size:14px;display:grid;ga
   <div class="myths" id="myths"></div>
 </section>
 
-<section aria-labelledby="h-ver">
+<section aria-labelledby="h-ver" hidden>
   <div class="verdict">
     <h2 id="h-ver">Veredito</h2>
     <p><b>O preço da picanha depende mais do boi, do dólar e da China do que de quem está no Planalto.</b></p>
@@ -301,6 +457,9 @@ footer{padding-block:44px 60px;color:var(--muted);font-size:14px;display:grid;ga
     </ul>
   </div>
 </section>
+
+  </div>
+</details>
 
 <footer>
   <p>Cada item traz o link da reportagem, do índice ou do documento de onde saiu. Os cálculos de horas de trabalho são nossos, a partir das fontes citadas.</p>
