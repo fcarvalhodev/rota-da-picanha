@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rota da Picanha em ícones</title>
+<meta name="description" content="Por que a picanha não ficou barata, em ícones: menos boi, carne que vai para fora, horas de trabalho por quilo e quanto ela subiu em cada governo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fcarvalhodev.github.io/rotas/visual/visual.css">
+<style>
+:root{--accent:#4f6b17;--hero:#3e5512}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--accent:#a9c95a;--hero:#3e5512}}
+:root[data-theme="dark"]{--accent:#a9c95a;--hero:#3e5512}
+.hero{background:var(--hero);border-color:var(--hero)}.hero .go a{color:var(--hero)}
+</style>
+</head><body>
+<style>/* barra comum das Rotas */.rotas-bar{border-bottom:1px solid var(--line);background:var(--bg);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}.rotas-bar>div{max-width:880px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}.rotas-bar a{color:var(--muted);text-decoration:none;padding-block:2px;border-bottom:2px solid transparent}.rotas-bar a:hover{color:var(--ink)}.rotas-bar a[aria-current]{color:var(--ink);border-bottom-color:var(--accent)}.rotas-bar .rb-home{color:var(--accent);font-weight:600}.rv-btn{display:inline-flex;align-items:center;gap:8px;justify-self:start;font-family:var(--ui,system-ui);font-weight:800;font-size:16px;letter-spacing:.02em;text-decoration:none;color:var(--paper,#fff);background:var(--accent);padding:10px 16px;border-radius:999px;box-shadow:0 2px 0 rgba(0,0,0,.15)}.rv-btn:hover{filter:brightness(1.08)}.rv-btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}.rotas-bar a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}</style><style>/* padrão das Rotas: formato fácil */body{font-size:19px;line-height:1.7}h1{font-family:var(--display);font-stretch:62%;font-weight:900;font-size:clamp(46px,11vw,104px);line-height:.9;text-transform:uppercase;overflow-wrap:anywhere}h2{font-family:var(--display);font-stretch:66%;font-weight:800;font-size:clamp(34px,7vw,52px);line-height:.95;text-transform:uppercase}</style><nav class="rotas-bar" aria-label="Rotas"><div><a class="rb-home" href="https://fcarvalhodev.github.io/rotas/">Rotas</a><a href="https://fcarvalhodev.github.io/rota-washington/">Washington</a><a href="https://fcarvalhodev.github.io/rota-master/">Master</a><a href="https://fcarvalhodev.github.io/rota-curitiba/">Curitiba</a><a href="https://fcarvalhodev.github.io/rota-da-fe/">Fé</a><a href="https://fcarvalhodev.github.io/rota-esplanada/">Esplanada</a><a href="https://fcarvalhodev.github.io/rota-itamaraty/">Itamaraty</a><a href="https://fcarvalhodev.github.io/rota-da-picanha/" aria-current="page">Picanha</a><a href="https://fcarvalhodev.github.io/rota-do-ibge/">IBGE</a><a href="https://fcarvalhodev.github.io/rota-velho-chico/">Velho Chico</a><a href="https://fcarvalhodev.github.io/rota-do-tesouro/">Tesouro</a><a href="https://fcarvalhodev.github.io/rota-rouanet/">Rouanet</a><a href="https://fcarvalhodev.github.io/rota-dos-ventos/">Ventos</a></div></nav>
+
+
+<main class="rv" id="rv" aria-label="Rota da Picanha em ícones"></main>
+<script>
+window.RV_DATA={
+ kicker:"Rota da Picanha · em ícones",
+ title:"Por que a picanha não ficou barata?",
+ answer:"Tem <b>menos boi</b>, muita carne <b>vai para fora</b> e criar boi <b>ficou mais caro</b>. Isso não depende só do presidente.",
+ heroIcons:["iso-boi","iso-bife","iso-prato","iso-navio","iso-boi","iso-relogio","iso-globo","iso-caminhao","iso-bife","iso-boi"],
+ full:"index.html",
+ updated:"Dados até setembro de 2026 · atualizado em 12 de outubro de 2026 · ícones próprios e Tabler Icons (MIT)",
+ cards:[
+  {type:"hero",span:"s4",rows:2},
+  {type:"iso",span:"s4",label:"Para onde vai a carne do Brasil",title:"De cada 10 pedaços, 3 vão para fora",size:26,
+   rows:[
+    {name:"1º semestre de 2024",value:"25,1% fora",parts:[{icon:"iso-bife",n:7.49,color:"var(--accent)"},{icon:"iso-bife",n:2.51,color:"var(--b)"}]},
+    {name:"1º semestre de 2025",value:"28,7% fora",parts:[{icon:"iso-bife",n:7.13,color:"var(--accent)"},{icon:"iso-bife",n:2.87,color:"var(--b)"}]}],
+   key:[{icon:"iso-bife",text:"10% da carne, fica aqui",color:"var(--accent)"},{icon:"iso-bife",text:"vai para fora",color:"var(--b)"}],
+   src:[["Cepea: exportação","https://www.portaldoagronegocio.com.br/pecuaria/bovinos-de-corte/noticias/producao-de-carne-bovina-nao-acompanha-crescimento-das-exportacoes-aponta-cepea"]]},
+  {type:"iso",span:"s4",label:"Quem compra a carne que sai",title:"Metade vai para a China",size:26,
+   rows:[{name:"Janeiro a maio de 2026",value:"China 51%",parts:[{icon:"iso-navio",n:5.1,color:"var(--b)"},{icon:"iso-navio",n:4.9,color:"var(--d)"}]}],
+   key:[{icon:"iso-navio",text:"10% da carne exportada, China",color:"var(--b)"},{icon:"iso-navio",text:"outros países",color:"var(--d)"}],
+   src:[["Gazeta do Paraná: China","https://gazetadoparana.com.br/artigo/preco-da-carne-bovina-sobe-em-2026-e-picanha-acumula-alta-de-mais-de-10-no-semestre"]]},
+  {type:"iso",span:"s8",label:"Quanto trabalho paga 1 kg de picanha",title:"Um dia inteiro de salário mínimo",size:30,
+   rows:[
+    {name:"No varejo, abril de 2026",icon:"iso-relogio",n:8.2,value:"8,2 horas · R$ 60,70/kg",color:"var(--accent)"},
+    {name:"No atacado, junho de 2026",icon:"iso-relogio",n:9.8,value:"9,8 horas · R$ 72,38/kg",color:"var(--b)"}],
+   key:{icon:"iso-relogio",text:"1 hora de trabalho (R$ 7,37)"},
+   text:"Conta nossa: salário mínimo de R$ 1.621 dividido por 220 horas no mês. O preço muda muito de região para região.",
+   src:[["Neogrid: preço no varejo","https://centraldovarejo.com.br/picanha-cai-26-e-churrasco-fica-mais-barato-para-o-brasileiro-em-2026/"],["CNN: atacado e salário mínimo","https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/"]]},
+  {type:"flow",span:"s6",label:"O ciclo do boi",title:"Por que hoje tem menos boi",
+   steps:[
+    {icon:"iso-desce",name:"Boi barato",sub:"2023 e 2024"},
+    {icon:"iso-fabrica",name:"Vacas vão para o abate",sub:"a vaca é a mãe do bezerro"},
+    {icon:"iso-boi",name:"Nascem menos bezerros"},
+    {icon:"iso-sobe",name:"Falta boi, a carne sobe",sub:"2026",hot:true}],
+   text:"Cada volta leva alguns anos. Nenhum governo faz uma vaca ter bezerro mais rápido.",
+   src:[["CNN Brasil: ciclo do boi","https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/"]]},
+  {type:"scale",span:"s6",label:"E o governo?",title:"Pode mexer no imposto, não no boi",tilt:6,
+   left:{icon:"iso-check",title:"O governo pode",text:"Tirar imposto da carne (na reforma tributária, com transição) e da carne que vem de fora."},
+   right:{icon:"iso-x",title:"O governo não pode",text:"Fazer nascer mais boi de um ano para o outro, mandar no preço que a China paga ou fazer chover no pasto."},
+   src:[["A Gazeta: carne na cesta","https://www.agazeta.com.br/economia/camara-aprova-inclusao-da-carne-na-cesta-basica-com-aliquota-zero-0724"],["Diário do Nordeste: imposto zerado","https://diariodonordeste.verdesmares.com.br/negocios/medida-que-zera-tarifa-de-alimentos-importados-comeca-a-valer-nesta-sexta-14-confirma-governo-federal-1.3629576"],["Câmara: LC 214/2025","https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html"]]},
+  {type:"iso",span:"s6",label:"Quanto a picanha subiu no IPCA, do IBGE",title:"Subiu bem menos agora, mas não ficou barata",size:22,
+   rows:[
+    {head:"Bolsonaro"},{name:"jan. 2020 a dez. 2022",icon:"iso-sobe",n:38,value:"+38%",color:"var(--accent)"},
+    {head:"Lula 3"},{name:"jan. 2023 a set. 2026",icon:"iso-sobe",n:7.3,value:"+7,3%",color:"var(--accent)"}],
+   key:{icon:"iso-sobe",text:"1% de alta no preço"},
+   text:"“Com Bolsonaro a carne era barata”: depende da medida. São janelas diferentes, de 36 e 45 meses.",
+   src:[["IBGE/SIDRA: IPCA por período","https://sidra.ibge.gov.br/tabela/7060"]]},
+  {type:"iso",span:"s6",label:"Depende da régua",title:"Cada medida dá um número",size:22,
+   rows:[
+    {name:"IPCA, jan. 2023 a set. 2026",icon:"iso-sobe",n:7.3,value:"+7,3%",color:"var(--b)"},
+    {name:"Atacado, já sem a inflação, desde 2023",icon:"iso-sobe",n:25.7,value:"+25,7%",color:"var(--b)"},
+    {name:"Notas do varejo, abr. 2025 a abr. 2026",icon:"iso-desce",n:25.9,value:"−25,9%",color:"var(--c)"},
+    {name:"IPCA, 1º semestre de 2026",icon:"iso-sobe",n:10.7,value:"+10,7%",color:"var(--b)"}],
+   key:[{icon:"iso-sobe",text:"1% de alta",color:"var(--b)"},{icon:"iso-desce",text:"1% de queda",color:"var(--c)"}],
+   text:"Todos são verdadeiros. Cada um mede uma coisa diferente.",
+   src:[["IBGE/SIDRA","https://sidra.ibge.gov.br/tabela/7060"],["CNN Brasil / Safras & Mercado","https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/"],["Central do Varejo / Neogrid","https://centraldovarejo.com.br/picanha-cai-26-e-churrasco-fica-mais-barato-para-o-brasileiro-em-2026/"],["Gazeta do Paraná / IBGE","https://gazetadoparana.com.br/artigo/preco-da-carne-bovina-sobe-em-2026-e-picanha-acumula-alta-de-mais-de-10-no-semestre"]]},
+  {type:"iso",span:"s6",label:"Carne bovina por pessoa no ano",title:"Menos carne no prato",size:22,
+   rows:[
+    {name:"Pico recente",icon:"iso-prato",n:38,value:"38 kg",color:"var(--d)"},
+    {name:"2025",icon:"iso-prato",n:31.9,value:"31,9 kg",color:"var(--accent)"}],
+   key:{icon:"iso-prato",text:"1 kg de carne por pessoa"},
+   text:"Queda de 16,1%. O ano do pico não foi informado, e a conta não mostra uma causa única.",
+   src:[["CNN Brasil","https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/"]]},
+  {type:"iso",span:"s6",label:"Quem produz a comida · Censo Agro 2017",title:"Muitas fazendas familiares, pouco do valor",size:22,
+   rows:[
+    {name:"Propriedades rurais",value:"76,8% familiares",parts:[{icon:"iso-casa",n:15.36,color:"var(--accent)"},{icon:"iso-casa",n:4.64,color:"var(--d)"}]},
+    {name:"Valor de tudo o que se produz",value:"23% familiar",parts:[{icon:"iso-casa",n:4.6,color:"var(--accent)"},{icon:"iso-casa",n:15.4,color:"var(--d)"}]}],
+   key:[{icon:"iso-casa",text:"5%, agricultura familiar",color:"var(--accent)"},{icon:"iso-casa",text:"agro não familiar",color:"var(--d)"}],
+   text:"As fazendas grandes plantam soja, milho e cana para exportar.",
+   src:[["Compre Rural: Censo 2017","https://comprerural.com/agricultura-familiar-produz-70-dos-alimentos-brasileiros-certo-ou-errado/"],["IBGE: Censo Agro 2017","https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/25789-censo-agro-2017-populacao-ocupada-nos-estabelecimentos-agropecuarios-cai-8-8"]]},
+  {type:"verdicts",span:"s12",label:"É verdade?",
+   items:[["u","“A picanha está cara por culpa do Lula.”"],["m","“Lula prometeu picanha e não entregou.”"],["m","“Com Bolsonaro a carne era barata.”","Depende da medida"],["m","“A picanha nunca esteve tão barata.”"],["m","“Exportar carne deixa o brasileiro sem carne.”"],["m","“O agro vende em dólar e o brasileiro paga em dólar.”"]]}
+ ]};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://fcarvalhodev.github.io/rotas/visual/icons.js"></script>
+<script src="https://fcarvalhodev.github.io/rotas/visual/visual.js"></script>
+</body></html>
