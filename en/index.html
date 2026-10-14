@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Picanha Route</title>
+<meta name="description" content="Why picanha costs what it does: the cattle cycle, the dollar, exports and China, what the government controls and what it does not, how much work one kilo costs and who produces the country's food.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: the Rotas skeleton (condensed Archivo, Source Serif, JetBrains Mono). The Picanha's own colour is chimichurri green.
+   Order: hero → the promise and the price (IPCA by government, buying power) → which ruler you use → who sets the price (mechanism) → what the government did → work hours per kg → who grows the food → myths → verdict. */
+:root{
+  --bg:#f1f0ea; --paper:#fbfaf6; --ink:#1c1d18; --muted:#5d5f55; --line:#d7d5c9; --soft:#e8e6dc;
+  --accent:#4f6b17; --accent-soft:#e6eccf;
+  --lula:#2a78d6; --bolso:#eda100;
+  --ok:#1f6b45; --ok-soft:#dcefe3; --no:#a12a2a; --no-soft:#f6dede; --part:#7a5a00; --part-soft:#f6ebc9;
+  --display:"Archivo","Arial Narrow",Impact,sans-serif;
+  --ui:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --text:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#13140f; --paper:#1b1c17; --ink:#ecebe3; --muted:#a5a798; --line:#2f3129; --soft:#25271f;
+  --accent:#a9c95a; --accent-soft:#263016;
+  --lula:#3987e5; --bolso:#c98500;
+  --ok:#7fd3a3; --ok-soft:#173326; --no:#f19b9b; --no-soft:#3a1c1c; --part:#e8c25a; --part-soft:#3a3016; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#13140f; --paper:#1b1c17; --ink:#ecebe3; --muted:#a5a798; --line:#2f3129; --soft:#25271f;
+  --accent:#a9c95a; --accent-soft:#263016;
+  --lula:#3987e5; --bolso:#c98500;
+  --ok:#7fd3a3; --ok-soft:#173326; --no:#f19b9b; --no-soft:#3a1c1c; --part:#e8c25a; --part-soft:#3a3016; color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--text);font-size:17px;line-height:1.6}
+a{color:inherit;text-decoration-color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wrap{max-width:880px;margin:0 auto;padding-inline:16px}
+.kicker,.mono{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.kicker{color:var(--accent)}
+h1{font-family:var(--display);font-stretch:62%;font-weight:900;font-size:clamp(64px,17vw,170px);line-height:.84;margin:0;text-transform:uppercase;overflow-wrap:anywhere}
+h2{font-family:var(--display);font-stretch:66%;font-weight:800;font-size:clamp(34px,7vw,52px);line-height:.95;margin:0;text-transform:uppercase;text-wrap:balance}
+h3{font-family:var(--ui);font-weight:700;font-size:19px;line-height:1.2;margin:0;text-wrap:balance}
+p{margin:0}
+header,section{display:grid;grid-template-columns:minmax(0,1fr)}
+header{padding-block:40px 8px;gap:18px}
+section{padding-block:48px 8px;gap:18px}
+.lede{font-size:19px;max-width:62ch}
+.sub{color:var(--muted);max-width:62ch}
+.src{font-family:var(--mono);font-size:12px;color:var(--muted);display:flex;flex-wrap:wrap;gap:2px 14px}
+.src a{color:var(--muted)}
+.src a:hover{color:var(--accent)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:16px 18px;display:grid;gap:10px;align-content:start}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+@media (min-width:720px){.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+
+/* hero cut diagram */
+.cut{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.cut svg{width:160px;height:auto}
+.cut .tag-line{font-family:var(--mono);font-size:12px;color:var(--muted);max-width:40ch}
+
+/* bars */
+.bars{display:grid;gap:10px}
+.bar{display:grid;grid-template-columns:minmax(0,9.5em) minmax(0,1fr) 4.4em;gap:10px;align-items:center;font-family:var(--mono);font-size:13px}
+.bar .t{height:22px;background:var(--soft);border-radius:2px;position:relative}
+.bar .f{position:absolute;inset:0 auto 0 0;background:var(--c);border-radius:2px}
+.bar b{text-align:right;font-weight:600;font-size:15px}
+.bar small{display:block;color:var(--muted);font-size:11px}
+.big{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.big strong{font-family:var(--display);font-stretch:62%;font-weight:900;font-size:clamp(52px,12vw,84px);line-height:.9;color:var(--c)}
+.big span{max-width:28ch}
+
+/* rulers */
+.rulers{display:grid;gap:0;background:var(--paper);border:1px solid var(--line);border-radius:4px}
+.ruler{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 14px;padding:12px 16px;border-top:1px solid var(--line);align-items:center}
+.ruler:first-child{border-top:0}
+.ruler b{font-family:var(--ui)}
+.ruler .v{font-family:var(--display);font-stretch:66%;font-weight:800;font-size:28px;color:var(--c)}
+.ruler p{grid-column:1/-1;font-size:15px;color:var(--muted)}
+.ruler .src{grid-column:1/-1}
+
+/* mechanism flow */
+.flow{display:grid;grid-template-columns:minmax(0,1fr);gap:0;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:16px}
+.flow ol{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:f}
+.flow li{position:relative;padding:10px 0 10px 44px;counter-increment:f}
+.flow li::before{content:counter(f);position:absolute;left:0;top:8px;width:30px;height:30px;border-radius:50%;background:var(--accent);color:var(--paper);font-family:var(--mono);font-weight:600;display:grid;place-items:center}
+.flow li:not(:last-child)::after{content:"";position:absolute;left:14px;top:40px;bottom:-8px;border-left:2px dashed var(--line)}
+.flow b{font-family:var(--ui)}
+.card .n{font-family:var(--display);font-stretch:62%;font-weight:900;font-size:40px;color:var(--accent);line-height:.9}
+.card p{font-size:16px}
+.who{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:2px;justify-self:start;border:1px solid var(--c);color:var(--c)}
+
+/* japan */
+.hours{display:grid;gap:12px}
+.hrow{display:grid;grid-template-columns:minmax(0,1fr);gap:6px}
+.hrow .lab{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 10px;font-family:var(--ui);font-weight:700;font-size:20px}
+.hrow .lab span{font-family:var(--mono);font-weight:500;font-size:13px;color:var(--muted)}
+.clock{display:flex;flex-wrap:wrap;gap:4px}
+.clock i{width:26px;height:26px;border-radius:50%;background:var(--c);display:block;position:relative}
+.clock i.part{background:conic-gradient(var(--c) calc(var(--p)*1%),var(--soft) 0)}
+
+/* table for family farming */
+.share{display:grid;gap:8px}
+.share .r{display:grid;grid-template-columns:8.5em minmax(0,1fr) 3.4em;gap:10px;align-items:center;font-family:var(--mono);font-size:13px}
+.share .t{height:14px;background:var(--soft);border-radius:2px;position:relative}
+.share .f{position:absolute;inset:0 auto 0 0;background:var(--accent);border-radius:2px}
+.share b{text-align:right}
+
+
+/* visuals */
+:root{--exp:#eb6834;--cn:#c2410c}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--exp:#d95926;--cn:#f08a5d}}
+:root[data-theme="dark"]{--exp:#d95926;--cn:#f08a5d}
+.stack{display:flex;height:34px;border-radius:3px;overflow:hidden;font-family:var(--mono);font-size:12.5px;font-weight:600}
+.stack span{display:flex;align-items:center;padding:0 10px;color:#fff;white-space:nowrap;overflow:hidden}
+.stack.small{height:24px;font-size:11.5px}
+.legend2{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.legend2 i{display:inline-block;width:12px;height:12px;border-radius:2px;background:var(--c);margin-right:6px;vertical-align:-1px}
+.minis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.mini{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:14px 16px;display:grid;gap:8px;align-content:start}
+.mini h3{font-size:15.5px}
+.mrow{display:grid;grid-template-columns:minmax(0,1fr);gap:3px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.mrow .t{height:14px;background:var(--soft);border-radius:2px;position:relative}
+.mrow .f{position:absolute;inset:0 auto 0 0;background:var(--c);border-radius:2px}
+.mrow b{font-size:15px;color:var(--ink);font-weight:600}
+.mini p{font-size:14px;color:var(--muted)}
+.cycle svg{width:100%;height:auto;display:block}
+.cycle svg text{font-family:var(--mono);font-size:18px;fill:var(--ink)}
+.cycle svg text.m{fill:var(--muted);font-size:17px}
+.cycle svg text.h{font-family:var(--ui);font-weight:700;font-size:23px}
+/* tags + myths */
+.tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:2px;font-weight:500;line-height:1.4;white-space:nowrap}
+.tag.ok{background:var(--ok-soft);color:var(--ok);border:1px solid var(--ok)}
+.tag.no{background:var(--no-soft);color:var(--no);border:1px solid var(--no)}
+.tag.part{background:var(--part-soft);color:var(--part);border:1px solid var(--part)}
+.myths{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px}
+.myth{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:16px 18px;display:grid;gap:10px;align-content:start}
+.myth .side{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.myth .claim{font-family:var(--ui);font-weight:700;font-size:18px;line-height:1.25}
+.myth p{font-size:16px}
+.verdict{background:var(--ink);color:var(--paper);border-radius:4px;padding:22px 20px;display:grid;gap:12px}
+.verdict h2{color:var(--paper)}
+.verdict p{max-width:64ch}
+.verdict ul{margin:0;padding-left:20px;display:grid;gap:6px}
+footer{padding-block:44px 60px;color:var(--muted);font-size:14px;display:grid;gap:8px}
+
+/* easy version */
+body{font-size:19px;line-height:1.7}
+h1{font-size:clamp(46px,11vw,104px);line-height:.9}
+.lg{font-size:21px;line-height:1.6}
+.answer-box{background:var(--accent-soft);border:2px solid var(--accent);border-radius:6px;padding:20px;margin-top:40px}
+.reasons{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+@media (min-width:760px){.reasons{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.reason{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:20px;display:grid;gap:12px;align-content:start}
+.reason h3{font-size:24px}
+.reason p{font-size:18px}
+.reason .note{font-size:16px;color:var(--muted)}
+.emo{font-size:56px;line-height:1}
+.cows{display:grid;gap:8px;background:var(--soft);border-radius:4px;padding:12px}
+.cows>div{display:grid;grid-template-columns:3.4em minmax(0,1fr);gap:2px 10px;align-items:center}
+.cows .yr{font-family:var(--mono);font-weight:600;font-size:15px}
+.cows .row{font-size:clamp(20px,5.6vw,30px);letter-spacing:1px;line-height:1.1;white-space:nowrap}
+.cows .gone{opacity:.18;filter:grayscale(1)}
+.cows .cap{grid-column:2;font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.plates{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:4px;font-size:clamp(22px,6vw,34px);background:var(--soft);border-radius:4px;padding:10px;text-align:center}
+.plates .out{transform:translateY(-6px);filter:hue-rotate(-20deg) saturate(.6);opacity:.55;position:relative}
+.cap2{font-size:18px}
+.choice{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:8px;align-items:center}
+.choice .opt{background:var(--soft);border-radius:6px;padding:12px;text-align:center;display:grid;gap:2px}
+.choice .opt span{font-size:34px;line-height:1}
+.choice .opt b{font-family:var(--ui);font-size:17px}
+.choice .opt small{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.choice .opt.hi{outline:3px solid var(--accent)}
+.choice .vs{font-family:var(--mono);color:var(--muted)}
+.costs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.costs li{background:var(--soft);border-radius:4px;padding:10px;font-family:var(--ui);font-weight:600;font-size:16px;display:flex;align-items:center;gap:8px}
+.costs li span{font-size:26px}
+.cando{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+@media (min-width:720px){.cando{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cando>div{border-radius:6px;padding:18px 20px;border:2px solid var(--c)}
+.cando .can{--c:var(--ok);background:var(--ok-soft)}
+.cando .cant{--c:var(--no);background:var(--no-soft)}
+.cando h3{font-size:22px;margin-bottom:6px}
+.cando ul{margin:0;padding-left:20px;display:grid;gap:8px;font-size:18px}
+.vs2{display:grid;gap:14px;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:20px}
+.who2{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:baseline}
+.who2 .nm{font-family:var(--ui);font-weight:700;font-size:20px}
+.who2 .pct{font-family:var(--display);font-stretch:62%;font-weight:900;font-size:44px;color:var(--c);line-height:1}
+.who2 .bar2{grid-column:1/-1;height:26px;background:var(--soft);border-radius:3px;overflow:hidden}
+.who2 .bar2 i{display:block;height:100%;background:var(--c)}
+.who2 small{grid-column:1/-1;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.clock i{width:34px;height:34px}
+.vf{display:grid;gap:12px}
+.vfi{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:16px 18px;display:grid;gap:8px}
+.vfi p{font-size:18px}
+.badge{justify-self:start;font-family:var(--ui);font-weight:800;font-size:15px;letter-spacing:.04em;text-transform:uppercase;padding:4px 12px;border-radius:999px}
+.badge.f{background:var(--no-soft);color:var(--no);border:2px solid var(--no)}
+.badge.m{background:var(--part-soft);color:var(--part);border:2px solid var(--part)}
+.badge.v{background:var(--ok-soft);color:var(--ok);border:2px solid var(--ok)}
+.verdict ul.lg li{font-size:20px}
+details.mais{margin-top:44px;border:2px solid var(--line);border-radius:6px;background:var(--paper)}
+details.mais>summary{cursor:pointer;padding:18px 20px;font-family:var(--ui);font-weight:700;font-size:19px;list-style:none;display:flex;justify-content:space-between;gap:12px}
+details.mais>summary::after{content:"+";font-family:var(--mono);font-size:24px;line-height:1}
+details.mais[open]>summary::after{content:"−"}
+details.mais>summary::-webkit-details-marker{display:none}
+.mais-body{padding:0 16px 20px;font-size:17px;line-height:1.6}
+.mais-body section{padding-top:32px}
+</style>
+</head><body>
+
+
+<style>/* barra comum das Rotas */.rotas-bar .rb-lang{margin-left:auto;color:var(--accent);font-weight:600}.rotas-bar{border-bottom:1px solid var(--line);background:var(--bg);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}.rotas-bar>div{max-width:880px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}.rotas-bar a{color:var(--muted);text-decoration:none;padding-block:2px;border-bottom:2px solid transparent}.rotas-bar a:hover{color:var(--ink)}.rotas-bar a[aria-current]{color:var(--ink);border-bottom-color:var(--accent)}.rotas-bar .rb-home{color:var(--accent);font-weight:600}.rotas-bar a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}</style><style>/* padrão das Rotas: formato fácil */body{font-size:19px;line-height:1.7}h1{font-family:var(--display);font-stretch:62%;font-weight:900;font-size:clamp(46px,11vw,104px);line-height:.9;text-transform:uppercase;overflow-wrap:anywhere}h2{font-family:var(--display);font-stretch:66%;font-weight:800;font-size:clamp(34px,7vw,52px);line-height:.95;text-transform:uppercase}</style><nav class="rotas-bar" aria-label="Routes"><div><a class="rb-home" href="https://fcarvalhodev.github.io/rotas/en/">Routes</a><a href="https://fcarvalhodev.github.io/rota-washington/en/">Washington</a><a href="https://fcarvalhodev.github.io/rota-master/en/">Master</a><a href="https://fcarvalhodev.github.io/rota-curitiba/en/">Curitiba</a><a href="https://fcarvalhodev.github.io/rota-da-fe/en/">Faith</a><a href="https://fcarvalhodev.github.io/rota-esplanada/en/">Esplanada</a><a href="https://fcarvalhodev.github.io/rota-itamaraty/en/">Itamaraty</a><a href="https://fcarvalhodev.github.io/rota-da-picanha/en/" aria-current="page">Picanha</a><a href="https://fcarvalhodev.github.io/rota-do-ibge/en/">IBGE</a><a href="https://fcarvalhodev.github.io/rota-velho-chico/en/">Velho Chico</a><a href="https://fcarvalhodev.github.io/rota-do-tesouro/en/">Treasury</a><a href="https://fcarvalhodev.github.io/rota-rouanet/en/">Rouanet</a><a href="https://fcarvalhodev.github.io/rota-dos-ventos/en/">Winds</a><a href="https://fcarvalhodev.github.io/rota-do-algoritmo/en/">Algorithm</a><a class="rb-lang" href="../" hreflang="pt-BR" lang="pt-BR">PT</a></div></nav>
+<header class="wrap">
+  <div class="kicker">Picanha Route</div>
+  <h1>Why didn't picanha get cheap?</h1>
+  <p class="lede lg">In 2022, Lula promised “picanha and a cold beer”. Picanha is Brazil's favorite barbecue cut. Many people say it is still expensive. Here is the explanation, in simple words.</p>
+  <a class="rv-btn" href="visual.html"><span aria-hidden="true">📊</span> See the summary in icons</a>
+</header>
+
+<main class="wrap">
+
+<section class="answer-box" aria-labelledby="h-curta">
+  <h2 id="h-curta">The short answer</h2>
+  <p class="lg">The price of picanha depends mainly on <b>how many cattle there are to sell</b> and on <b>how much the world pays for Brazilian beef</b>. Public policies can influence costs, supply and the exchange rate, but they do not set the price on their own.</p>
+</section>
+
+<section aria-labelledby="h-motivos">
+  <h2 id="h-motivos">The 4 reasons</h2>
+  <div class="reasons">
+    <article class="reason">
+      <div class="emo" aria-hidden="true">🐄</div>
+      <h3>1. There are fewer cattle</h3>
+      <div class="cows" role="img" aria-label="In 2024 there were more cows; in 2026 there are fewer">
+        <div><span class="yr">2024</span><span class="row">🐄🐄🐄🐄🐄🐄</span><span class="cap">many cows went to slaughter</span></div>
+        <div><span class="yr">2026</span><span class="row">🐄🐄🐄🐄<span class="gone">🐄🐄</span></span><span class="cap">fewer cattle left</span></div>
+      </div>
+      <p>In 2023 and 2024, when cattle were cheap, many ranchers sold their cows. The cow is the calf's mother. With fewer mothers, fewer calves were born. Today there are fewer cattle to sell, and what is scarce gets more expensive.</p>
+      <p class="note">This back-and-forth is called the <b>cattle cycle</b> and it takes several years. No government can make a cow have a calf faster.</p>
+    </article>
+    <article class="reason">
+      <div class="emo" aria-hidden="true">🚢</div>
+      <h3>2. A lot of beef goes abroad</h3>
+      <div class="plates" role="img" aria-label="Out of every 10 pieces of beef, 7 stay in Brazil and 3 go abroad">
+        <span>🥩</span><span>🥩</span><span>🥩</span><span>🥩</span><span>🥩</span><span>🥩</span><span>🥩</span><span class="out">🥩</span><span class="out">🥩</span><span class="out">🥩</span>
+      </div>
+      <p class="cap2">Out of every 10 pieces of beef, <b>7 stay in Brazil</b> and <b>3 go abroad</b>. Half of what leaves goes to China.</p>
+      <p>The more beef goes away, the less is left at the butcher's here.</p>
+    </article>
+    <article class="reason">
+      <div class="emo" aria-hidden="true">💵</div>
+      <h3>3. Abroad they pay in dollars</h3>
+      <div class="choice" role="img" aria-label="The meatpacker chooses between selling here or selling abroad in dollars">
+        <div class="opt"><span>🇧🇷</span><b>Sell here</b><small>paid in reais</small></div>
+        <div class="vs">or</div>
+        <div class="opt hi"><span>🌎</span><b>Sell abroad</b><small>paid in dollars</small></div>
+      </div>
+      <p>The meatpacker can sell the beef here or to another country. If they pay more abroad, it will only sell here for the same price. That is why beef here follows the price abroad.</p>
+    </article>
+    <article class="reason">
+      <div class="emo" aria-hidden="true">🌾</div>
+      <h3>4. Raising cattle got more expensive</h3>
+      <ul class="costs">
+        <li><span aria-hidden="true">🌽</span>feed and corn</li>
+        <li><span aria-hidden="true">⛽</span>fuel and freight</li>
+        <li><span aria-hidden="true">⚡</span>energy</li>
+        <li><span aria-hidden="true">☀️</span>drought in the pastures</li>
+      </ul>
+      <p>All of this went up. When it costs more to raise cattle, beef reaches the butcher's more expensive.</p>
+    </article>
+  </div>
+  <span class="src"><a href="https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/" target="_blank" rel="noopener">CNN Brasil: cattle cycle</a><a href="https://www.portaldoagronegocio.com.br/pecuaria/bovinos-de-corte/noticias/producao-de-carne-bovina-nao-acompanha-crescimento-das-exportacoes-aponta-cepea" target="_blank" rel="noopener">Cepea: exports</a><a href="https://gazetadoparana.com.br/artigo/preco-da-carne-bovina-sobe-em-2026-e-picanha-acumula-alta-de-mais-de-10-no-semestre" target="_blank" rel="noopener">Gazeta do Paraná: China</a><a href="https://tribunademinas.com.br/noticias/economia/30-04-2026/carne-bovina-preco-recorde.html" target="_blank" rel="noopener">Tribuna de Minas: costs</a></span>
+</section>
+
+<section aria-labelledby="h-gov2">
+  <h2 id="h-gov2">And the government?</h2>
+  <div class="cando">
+    <div class="can"><h3>✅ The government can</h3><ul><li>Remove taxes on beef. Complementary Law 214/2025 sets a zero IBS/CBS rate for meats in the basic food basket, under the conditions and transition of the tax reform; that does not mean all taxes are gone today.</li><li>Remove the tax on imported beef.</li></ul></div>
+    <div class="cant"><h3>❌ The government cannot</h3><ul><li>Make more cattle be born from one year to the next.</li><li>Set the price China pays.</li><li>Make it rain on the pastures.</li></ul></div>
+  </div>
+  <span class="src"><a href="https://www.agazeta.com.br/economia/camara-aprova-inclusao-da-carne-na-cesta-basica-com-aliquota-zero-0724" target="_blank" rel="noopener">A Gazeta: beef in the food basket</a><a href="https://diariodonordeste.verdesmares.com.br/negocios/medida-que-zera-tarifa-de-alimentos-importados-comeca-a-valer-nesta-sexta-14-confirma-governo-federal-1.3629576" target="_blank" rel="noopener">Diário do Nordeste: tax cut to zero</a></span>
+</section>
+
+<section aria-labelledby="h-subiu">
+  <h2 id="h-subiu">Under whom did it rise more?</h2>
+  <p class="sub lg">According to IBGE's official price index:</p>
+  <div class="vs2">
+    <div class="who2" style="--c:var(--bolso)"><span class="nm">Under Bolsonaro</span><span class="pct">+38%</span><span class="bar2"><i style="width:100%"></i></span><small>2020 to 2022</small></div>
+    <div class="who2" style="--c:var(--lula)"><span class="nm">Under Lula</span><span class="pct">+7.3%</span><span class="bar2"><i style="width:19.2%"></i></span><small>2023 to September 2026</small></div>
+  </div>
+  <p class="lg">Picanha has risen much less now. But it did not get cheap either: a historical comparison of purchasing power requires wages and prices on the same base, which are not available in this table.</p>
+  <span class="src"><a href="https://sidra.ibge.gov.br/tabela/7060" target="_blank" rel="noopener">IBGE/SIDRA: IPCA by period</a><a href="https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/" target="_blank" rel="noopener">CNN: purchasing power</a></span>
+</section>
+
+<section aria-labelledby="h-horas">
+  <h2 id="h-horas">How much work pays for 1 kg</h2>
+  <p class="sub lg">Someone earning the minimum wage has to work roughly <b>a full day</b> to buy 1 kg of picanha. Each dot is one hour of work.</p>
+  <div class="card hours">
+    <div class="hrow" style="--c:var(--ok)"><div class="lab">Retail<span>R$60.70/kg ÷ R$7.37/h · Apr 2026</span></div><div class="clock" id="clk-v" role="img" aria-label="8.2 hours of work"></div><span class="mono">8.2 hours of minimum wage</span></div>
+    <div class="hrow" style="--c:var(--no)"><div class="lab">Wholesale<span>R$72.38/kg ÷ R$7.37/h · Jun 2026</span></div><div class="clock" id="clk-a" role="img" aria-label="9.8 hours of work"></div><span class="mono">9.8 hours of minimum wage</span></div>
+    <p style="font-size:15px;color:var(--muted)">Our calculation, with the minimum wage of R$1,621 divided by 220 hours a month. In other words: a full day of work, or a little more, to take home 1 kg of picanha. The price varies a lot from region to region and month to month.</p>
+    <span class="src"><a href="https://centraldovarejo.com.br/picanha-cai-26-e-churrasco-fica-mais-barato-para-o-brasileiro-em-2026/" target="_blank" rel="noopener">Neogrid: retail price</a><a href="https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/" target="_blank" rel="noopener">CNN: wholesale and minimum wage</a></span>
+  </div>
+</section>
+
+<section aria-labelledby="h-vf">
+  <h2 id="h-vf">Is it true?</h2>
+  <div class="vf">
+    <div class="vfi"><span class="badge m">Not shown</span><p><b>“Picanha is expensive because of Lula.”</b> There is no basis for attributing the price solely to the president. Cattle supply, exports, the exchange rate, demand, costs and public policies can all play a part.</p></div>
+    <div class="vfi"><span class="badge m">Half true</span><p><b>“Lula promised picanha and did not deliver.”</b> The promise was made. The data shown do not allow concluding how the historical purchasing power of the minimum wage has changed.</p></div>
+    <div class="vfi"><span class="badge m">Depends on the measure</span><p><b>“Under Bolsonaro beef was cheap.”</b> Picanha rose 38% in the IPCA between 2020 and 2022. A percentage increase does not, on its own, determine price level or purchasing power.</p></div>
+    <div class="vfi"><span class="badge m">Half true</span><p><b>“Exporting beef leaves Brazilians without beef.”</b> Less beef is left here, but 7 out of every 10 pieces still stay in Brazil.</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="h-resumo">
+  <div class="verdict">
+    <h2 id="h-resumo">In short</h2>
+    <ul class="lg">
+      <li>Picanha is expensive because <b>there are fewer cattle</b>, <b>a lot of beef goes abroad</b> and <b>raising cattle got more expensive</b>.</li>
+      <li>This does not depend only on the president.</li>
+      <li>Under Lula it rose less than under Bolsonaro, but it has still not got cheap.</li>
+    </ul>
+  </div>
+</section>
+
+<details class="mais">
+  <summary>Want to see all the numbers? Tap here</summary>
+  <div class="mais-body">
+<section aria-labelledby="h-preco">
+  <h2 id="h-preco">The promise and the price</h2>
+  <p class="sub">The official consumer price measure is IBGE's IPCA. Picanha entered the index in January 2020, which is why the comparison starts there.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>How much picanha rose in the IPCA</h3>
+      <div class="bars">
+        <div class="bar"><span>Bolsonaro<small>Jan 2020 – Dec 2022</small></span><span class="t"><span class="f" style="--c:var(--bolso);width:100%"></span></span><b>+38%</b></div>
+        <div class="bar"><span>Lula 3<small>Jan 2023 – Sep 2026</small></span><span class="t"><span class="f" style="--c:var(--lula);width:19.2%"></span></span><b>+7.3%</b></div>
+      </div>
+      <p>The percentages cover different windows: 36 months in 2020–2022 and 45 months in 2023–September 2026. They do not measure full terms or explain causation.</p>
+      <span class="src"><a href="https://sidra.ibge.gov.br/tabela/7060" target="_blank" rel="noopener">IBGE/SIDRA: comparison updated through September</a></span>
+    </div>
+    <div class="card">
+      <h3>A June 2026 calculation</h3>
+      <div class="bars">
+        <div class="bar"><span>Jun 2026</span><span class="t"><span class="f" style="--c:var(--accent);width:100%"></span></span><b>22.4 kg</b></div>
+      </div>
+      <p>R$1,621 ÷ R$72.38/kg = 22.4 kg. This is an illustration with 2026 wages and prices, not a national retail price. We removed the historical comparison: it used today's wage with past prices adjusted for inflation. To measure purchasing power, wages and prices need the same base date.</p>
+      <span class="src"><a href="https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/" target="_blank" rel="noopener">CNN Brasil: Safras & Mercado data</a></span>
+    </div>
+  </div>
+  <h3 style="margin-top:6px">Depends on the yardstick</h3>
+  <p class="sub">Each side picks the number that suits it. All of these are true, and they measure different things.</p>
+  <div class="rulers">
+    <div class="ruler" style="--c:var(--lula)"><b>IPCA, consumer prices, Lula government</b><span class="v">+7.3%</span><p>From January 2023 to September 2026. Below general inflation for the period; in other words, in real terms picanha got cheaper.</p><span class="src"><a href="https://sidra.ibge.gov.br/tabela/7060" target="_blank" rel="noopener">IBGE/SIDRA</a></span></div>
+    <div class="ruler" style="--c:var(--no)"><b>Wholesale, adjusted for inflation, since 2023</b><span class="v">+25.7%</span><p>A wholesale kilo reached R$72.38 in June 2026, against R$57.56 in January 2023, in adjusted values.</p><span class="src"><a href="https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/" target="_blank" rel="noopener">CNN Brasil / Safras & Mercado</a></span></div>
+    <div class="ruler" style="--c:var(--ok)"><b>Retail receipts, April 2025 to April 2026</b><span class="v">−25.9%</span><p>From R$81.86 to R$60.70 a kilo, according to Neogrid.</p><span class="src"><a href="https://centraldovarejo.com.br/picanha-cai-26-e-churrasco-fica-mais-barato-para-o-brasileiro-em-2026/" target="_blank" rel="noopener">Central do Varejo / Neogrid</a></span></div>
+    <div class="ruler" style="--c:var(--no)"><b>IPCA, first half of 2026</b><span class="v">+10.7%</span><p>Beef rose again in 2026, driven by the cattle cycle and the rush to export to China before the quota.</p><span class="src"><a href="https://gazetadoparana.com.br/artigo/preco-da-carne-bovina-sobe-em-2026-e-picanha-acumula-alta-de-mais-de-10-no-semestre" target="_blank" rel="noopener">Gazeta do Paraná / IBGE</a></span></div>
+  </div>
+</section>
+
+<section aria-labelledby="h-quem">
+  <h2 id="h-quem">Who sets the price of picanha</h2>
+  <p class="sub">Beef is a commodity: the meatpacker can sell here or abroad. That makes the price here move together with the price abroad.</p>
+  <div class="flow">
+    <ol>
+      <li><b>The world pays in dollars.</b> China, the US and others buy Brazilian beef at the international price.</li>
+      <li><b>The dollar converts.</b> With a strong dollar, each exported kilo brings the meatpacker more reais.</li>
+      <li><b>The meatpacker compares.</b> It only sells here if the price here gets close to what it would receive by exporting.</li>
+      <li><b>Less is left for the domestic market.</b> In the first half of 2025, 28.7% of the beef produced was exported, according to the reference cited.</li>
+      <li><b>Cattle get more expensive.</b> The arroba (15 kg of cattle) hit a nominal record of R$367.30 in April 2026, and the price reaches the butcher's.</li>
+    </ol>
+  </div>
+  <span class="src"><a href="https://www.portaldoagronegocio.com.br/pecuaria/bovinos-de-corte/noticias/producao-de-carne-bovina-nao-acompanha-crescimento-das-exportacoes-aponta-cepea" target="_blank" rel="noopener">Cepea: exports and domestic supply</a><a href="https://tribunademinas.com.br/noticias/economia/30-04-2026/carne-bovina-preco-recorde.html" target="_blank" rel="noopener">Tribuna de Minas: record arroba</a></span>
+  <div class="card">
+    <h3>Where the beef produced went</h3>
+    <div class="stack" role="img" aria-label="71.3% stayed in Brazil, 28.7% was exported"><span style="width:71.3%;background:var(--accent)">71.3% in Brazil</span><span style="width:28.7%;background:var(--exp)">28.7% abroad</span></div>
+    <p style="font-size:15px;color:var(--muted)">First half of 2025, a record for the series. A year earlier, the exported share was 25.1%.</p>
+    <h3 style="margin-top:4px">And of the exported beef, who bought it</h3>
+    <div class="stack small" role="img" aria-label="China 51%, others 49%"><span style="width:51%;background:var(--cn)">China 51%</span><span style="width:49%;background:var(--muted)">other countries 49%</span></div>
+    <p style="font-size:15px;color:var(--muted)">January to May 2026.</p>
+    <span class="src"><a href="https://www.portaldoagronegocio.com.br/pecuaria/bovinos-de-corte/noticias/producao-de-carne-bovina-nao-acompanha-crescimento-das-exportacoes-aponta-cepea" target="_blank" rel="noopener">Cepea</a><a href="https://gazetadoparana.com.br/artigo/preco-da-carne-bovina-sobe-em-2026-e-picanha-acumula-alta-de-mais-de-10-no-semestre" target="_blank" rel="noopener">Gazeta do Paraná</a></span>
+  </div>
+  <div class="card cycle">
+    <h3>The cattle cycle, in one drawing</h3>
+    <svg viewBox="0 0 640 300" role="img" aria-label="Cattle cycle: expensive cattle, ranchers keep their cows; surplus cattle and cows slaughtered in 2023 and 2024; shortage of cattle in 2026; the cycle repeats">
+      <line x1="30" y1="165" x2="620" y2="165" stroke="var(--line)" stroke-dasharray="5 6"/>
+      <text class="m" x="620" y="155" text-anchor="end">average price</text>
+      <path d="M30 100 C 110 100, 150 230, 230 230 S 350 100, 430 100 S 550 230, 620 190" fill="none" stroke="var(--accent)" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="80" cy="104" r="10" fill="var(--no)"/><text class="h" x="40" y="46">Expensive cattle</text><text class="m" x="40" y="72">cows are kept</text>
+      <circle cx="230" cy="230" r="10" fill="var(--ok)"/><text class="h" x="170" y="270">Surplus cattle</text><text class="m" x="128" y="294">cows slaughtered, 2023–24</text>
+      <circle cx="430" cy="100" r="10" fill="var(--no)"/><text class="h" x="378" y="46">Cattle shortage</text><text class="m" x="352" y="72">fewer calves, 2026</text>
+      <path d="M572 206 l 16 -14 l 4 20 z" fill="var(--accent)"/>
+      <text class="m" x="470" y="270">and it all repeats</text>
+    </svg>
+    <p style="font-size:15px;color:var(--muted)">Each turn takes a few years, because a cow takes time to produce calves that become finished cattle. No government can speed that up.</p>
+    <span class="src"><a href="https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/" target="_blank" rel="noopener">CNN Brasil</a></span>
+  </div>
+  <div class="grid3">
+    <div class="card"><span class="who" style="--c:var(--muted)">Market</span><h3>China and exports</h3><p>China bought about half of the exported beef. In 2026, before China's quota ran out, meatpackers rushed to ship, which took beef off the domestic market.</p><span class="src"><a href="https://gazetadoparana.com.br/artigo/preco-da-carne-bovina-sobe-em-2026-e-picanha-acumula-alta-de-mais-de-10-no-semestre" target="_blank" rel="noopener">Gazeta do Paraná</a></span></div>
+    <div class="card"><span class="who" style="--c:var(--muted)">Market and climate</span><h3>Costs and drought</h3><p>More expensive corn, feed, energy and freight raise production costs. Drought ruins pastures and reduces the cattle ready for slaughter.</p><span class="src"><a href="https://tribunademinas.com.br/noticias/economia/30-04-2026/carne-bovina-preco-recorde.html" target="_blank" rel="noopener">Tribuna de Minas</a></span></div>
+  </div>
+<h3 style="margin-top:6px">Market signals</h3>
+  <div class="minis"><div class="mini"><h3>Cattle arroba, record</h3><div class="mrow"><span>2024 record</span><span class="t"><span class="f" style="--c:var(--line);width:96.0%"></span></span><b>R$352.65</b></div><div class="mrow"><span>April 2026</span><span class="t"><span class="f" style="--c:var(--no);width:100.0%"></span></span><b>R$367.30</b></div><p>Highest nominal value since 1997, when Cepea's series begins.</p><span class="src"><a href="https://tribunademinas.com.br/noticias/economia/30-04-2026/carne-bovina-preco-recorde.html" target="_blank" rel="noopener">Tribuna de Minas</a></span></div><div class="mini"><h3>Share of beef exported</h3><div class="mrow"><span>1st half 2024</span><span class="t"><span class="f" style="--c:var(--line);width:87.5%"></span></span><b>25.1%</b></div><div class="mrow"><span>1st half 2025</span><span class="t"><span class="f" style="--c:var(--exp);width:100.0%"></span></span><b>28.7%</b></div><p>Exports grew more than production.</p><span class="src"><a href="https://www.portaldoagronegocio.com.br/pecuaria/bovinos-de-corte/noticias/producao-de-carne-bovina-nao-acompanha-crescimento-das-exportacoes-aponta-cepea" target="_blank" rel="noopener">Cepea</a></span></div><div class="mini"><h3>Wholesale picanha, adjusted</h3><div class="mrow"><span>Jan 2023</span><span class="t"><span class="f" style="--c:var(--line);width:79.5%"></span></span><b>R$57.56</b></div><div class="mrow"><span>Jun 2026</span><span class="t"><span class="f" style="--c:var(--no);width:100.0%"></span></span><b>R$72.38</b></div><p>Per kilo, already adjusted for inflation.</p><span class="src"><a href="https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/" target="_blank" rel="noopener">CNN Brasil</a></span></div><div class="mini"><h3>Beef per person per year</h3><div class="mrow"><span>recent peak</span><span class="t"><span class="f" style="--c:var(--line);width:100.0%"></span></span><b>38 kg</b></div><div class="mrow"><span>2025</span><span class="t"><span class="f" style="--c:var(--muted);width:83.9%"></span></span><b>31.9 kg</b></div><p>From 38 to 31.9 kg, the difference is 16.1%. The peak year needs to be identified; the calculation does not show a single cause or measure observed individual consumption.</p><span class="src"><a href="https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/" target="_blank" rel="noopener">CNN Brasil</a></span></div></div>
+  <h3 style="margin-top:6px">What the government did</h3>
+  <div class="grid2">
+    <div class="card"><span class="who" style="--c:var(--accent)">Congress and government</span><h3>Beef in the basic food basket, with zero tax</h3><p>In the 2024 tax reform. The amendment came from the opposition, Lula supported including it, and the Chamber approved it 447 to 3. It applies with the new consumption tax.</p><span class="src"><a href="https://www.agazeta.com.br/economia/camara-aprova-inclusao-da-carne-na-cesta-basica-com-aliquota-zero-0724" target="_blank" rel="noopener">A Gazeta</a></span></div>
+    <div class="card"><span class="who" style="--c:var(--accent)">Government</span><h3>Import tax cut to zero</h3><p>In March 2025, imported beef, coffee, sugar, olive oil and other foods were exempted from tariffs. Since Brazil imports little beef, the effect on picanha tends to be small.</p><span class="src"><a href="https://diariodonordeste.verdesmares.com.br/negocios/medida-que-zera-tarifa-de-alimentos-importados-comeca-a-valer-nesta-sexta-14-confirma-governo-federal-1.3629576" target="_blank" rel="noopener">Diário do Nordeste</a></span></div>
+  </div>
+  <p class="sub">What no government controls alone: the cattle cycle, the international price, Chinese demand and the weather. The government influences the dollar, but does not decide it.</p>
+</section>
+
+
+
+<section aria-labelledby="h-comida">
+  <h2 id="h-comida">Who produces the food</h2>
+  <p class="sub">Big agribusiness exports soy, corn, coffee and beef, whose prices follow the dollar. Family farming weighs more in everyday foods. The figures from the latest Agricultural Census, from 2017:</p>
+  <div class="card">
+    <h3>Many farms, little value</h3>
+    <span class="mono">Rural properties</span>
+    <div class="stack" role="img" aria-label="76.8% family farms, 23.2% non-family"><span style="width:76.8%;background:var(--accent)">76.8% family</span><span style="width:23.2%;background:var(--muted)">23.2%</span></div>
+    <span class="mono">Value of everything produced</span>
+    <div class="stack" role="img" aria-label="23% family, 77% non-family"><span style="width:23%;background:var(--accent)">23%</span><span style="width:77%;background:var(--muted)">77% non-family agribusiness</span></div>
+    <p style="font-size:15px;color:var(--muted)">Family farming is the majority of farms, but they are small properties. The value of production is concentrated on the large ones, which grow soy, corn and sugarcane for export.</p>
+    <span class="src"><a href="https://comprerural.com/agricultura-familiar-produz-70-dos-alimentos-brasileiros-certo-ou-errado/" target="_blank" rel="noopener">Compre Rural: 2017 Census</a></span>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3>Family farming's share</h3>
+      <div class="share" id="share"></div>
+      <span class="src"><a href="https://fpagropecuaria.org.br/?p=38483" target="_blank" rel="noopener">FPA: 2017 Census data</a><a href="https://comprerural.com/agricultura-familiar-produz-70-dos-alimentos-brasileiros-certo-ou-errado/" target="_blank" rel="noopener">Compre Rural</a></span>
+    </div>
+    <div class="card">
+      <h3>What these numbers say</h3>
+      <p>Family farming is 76.8% of rural properties, but 23% of the value of everything produced. It dominates cassava, milk and fruits such as strawberries and grapes, and is a minority in beans and cattle.</p>
+      <p>The MST (Landless Workers' Movement) harvested about 16,000 tonnes of organic rice in the 2022/23 season. That is little compared with the country's rice, but it is the largest organic volume in Latin America, according to Rio Grande do Sul's rice institute (Irga).</p>
+      <span class="src"><a href="https://www.extraclasse.org.br/?p=90070" target="_blank" rel="noopener">Extra Classe: MST harvest</a></span>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="h-mitos">
+  <h2 id="h-mitos">More checked claims</h2>
+  <p class="sub">Claims from both sides, with the same standard.</p>
+  <div class="myths" id="myths"></div>
+</section>
+
+<section aria-labelledby="h-ver" hidden>
+  <div class="verdict">
+    <h2 id="h-ver">Verdict</h2>
+    <p><b>The price of picanha depends more on cattle, the dollar and China than on who is in the presidential palace.</b></p>
+    <ul>
+      <li>By the IPCA, picanha rose 38% under Bolsonaro and 7.3% under Lula through September 2026. By adjusted wholesale prices, it rose 25.7% since 2023. Both are true.</li>
+      <li>The promise was made. The minimum wage calculation presented here does not prove equivalent purchasing power to 2023.</li>
+      <li>Beef is a commodity: almost 30% goes abroad and the price here follows the price there. Policies can influence incentives and costs; the cattle cycle also depends on private decisions and natural conditions.</li>
+      <li>Family farming is essential for cassava, milk and fruit, but the 70% claim needs to define quantity, value, calories and destination of production to be verifiable.</li>
+    </ul>
+  </div>
+</section>
+
+  </div>
+</details>
+
+<footer>
+  <p>Each item links to the report, index or document it came from. The hours-of-work calculations are ours, based on the sources cited. Sources are in Portuguese.</p>
+  <p>Updated on October 12, 2026 (Tokyo).</p>
+</footer>
+
+<section aria-labelledby="h-ipca-setembro" style="padding:20px;border:1px solid var(--line);border-radius:6px;margin-block:24px">
+  <h2 id="h-ipca-setembro">Consumer prices: September 2026</h2>
+  <p>In the national IPCA, the picanha sub-item fell <b>0.49%</b> in the month; the general index rose <b>0.82%</b>. In the series consulted, picanha has risen <b>7.3%</b> from January 2023 to September 2026, against 38.0% between January 2020 and December 2022. These are different windows and do not measure a government's causal responsibility.</p>
+  <p>Source: SIDRA 7060, variable 63, Brazil, sub-item 47621 (1107208.Picanha), consulted on 10/12/2026. The cumulative figure is calculated by compounding the monthly changes, not by adding them. The wholesale comparison and the hours of work keep their own dates.</p>
+  <div class="src"><a href="https://sidra.ibge.gov.br/tabela/7060" target="_blank" rel="noopener">IBGE/SIDRA: table 7060</a><a href="../dados/picanha-ipca-2026-10-12.json">Extraction used</a></div>
+</section>
+<section id="fontes-revisao" aria-labelledby="h-fontes-revisao" style="margin-block:32px;padding:20px;border:1px solid var(--line);border-radius:6px">
+<h2 id="h-fontes-revisao">Sources and limits of this reading</h2>
+<p>We corrected the kilogram calculation and removed the historical purchasing-power chart with incompatible bases. From 38 to 31.9 kg, the arithmetic drop is 16.1%; the base year needs to be identified and apparent availability distinguished from observed consumption. The IPCA, wholesale prices and the retail sample measure different universes.</p>
+<div class="src"><a href="https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/25789-censo-agro-2017-populacao-ocupada-nos-estabelecimentos-agropecuarios-cai-8-8" target="_blank" rel="noopener">IBGE: 2017 Agricultural Census</a><a href="https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html" target="_blank" rel="noopener">Chamber: Complementary Law 214/2025</a></div>
+<p style="font-size:14px"><a href="https://fcarvalhodev.github.io/rotas/en/metodologia.html">How we tell facts, allegations and interpretations apart</a> · Editorial review: October 10, 2026.</p>
+</section>
+</main>
+
+<script>
+(function(){
+// clocks: one circle per hour, last one partial
+const clock=(id,h)=>{const el=document.getElementById(id);let s='';for(let i=0;i<Math.floor(h);i++)s+='<i></i>';const r=h-Math.floor(h);if(r>0)s+=`<i class="part" style="--p:${Math.round(r*100)}"></i>`;el.innerHTML=s};
+clock('clk-v',8.2);clock('clk-a',9.8);
+// family farming shares
+const SH=[["Cassava",70],["Milk",64.2],["Pigs (head)",51.4],["Coffee",38],["Cattle (head)",31],["Beans",23],["Total value",23]];
+document.getElementById('share').innerHTML=SH.map(r=>`<div class="r"><span>${r[0]}</span><span class="t"><span class="f" style="width:${r[1]}%"></span></span><b>${String(r[1]).replace('.',',')}%</b></div>`).join('');
+const S={
+  ipca:["IBGE/SIDRA: IPCA by period","https://sidra.ibge.gov.br/tabela/7060"],
+  cnn:["CNN Brasil: cattle cycle","https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/"],
+  promessa:["Revista Oeste: picanha and a cold beer","https://revistaoeste.com/politica/lula-volta-a-falar-em-cervejinha-e-picanha/"],
+  cepea:["Cepea: exports","https://www.portaldoagronegocio.com.br/pecuaria/bovinos-de-corte/noticias/producao-de-carne-bovina-nao-acompanha-crescimento-das-exportacoes-aponta-cepea"],
+  tribuna:["Tribuna de Minas","https://tribunademinas.com.br/noticias/economia/30-04-2026/carne-bovina-preco-recorde.html"],
+  censo:["Compre Rural: 2017 Census","https://comprerural.com/agricultura-familiar-produz-70-dos-alimentos-brasileiros-certo-ou-errado/"],
+  fpa:["FPA: 2017 Census","https://fpagropecuaria.org.br/?p=38483"],
+  mst:["Extra Classe","https://www.extraclasse.org.br/?p=90070"],
+  cesta:["A Gazeta: beef in the food basket","https://www.agazeta.com.br/economia/camara-aprova-inclusao-da-carne-na-cesta-basica-com-aliquota-zero-0724"],
+  neogrid:["Central do Varejo / Neogrid","https://centraldovarejo.com.br/picanha-cai-26-e-churrasco-fica-mais-barato-para-o-brasileiro-em-2026/"]
+};
+const L=k=>`<a href="${S[k][1]}" target="_blank" rel="noopener">${S[k][0]}</a>`;
+const M=[
+ ["Circulates against Lula","“Picanha is expensive because of Lula”","part","Not shown","The price has multiple factors: the cattle cycle, the exchange rate, demand, exports, costs and public policies. Comparing increases over different periods does not isolate a president's responsibility.",["cnn","cepea","ipca"]],
+ ["Circulates against Lula","“Lula promised picanha and did not deliver”","part","Half true","The promise was made. By the IPCA, picanha rose less than inflation, but by adjusted wholesale prices it rose 25.7% since 2023, and the calculation presented does not allow concluding equivalent purchasing power to 2023.",["promessa","ipca","cnn"]],
+ ["Circulates in favor of Bolsonaro","“Under Bolsonaro beef was cheap”","part","Depends on the measure","From January 2020 to December 2022, picanha rose 38% in the IPCA, a comparison of changes over different windows, not of affordability.",["ipca"]],
+ ["Circulates in favor of Lula","“Picanha has never been so cheap”","part","Half true","At retail it fell 25.9% between April 2025 and April 2026, but rose again 10.7% in the first half of 2026, and at wholesale, adjusted for inflation, it is 25.7% above 2023.",["neogrid","cnn"]],
+ ["Circulates on both sides","“Agribusiness sells in dollars and Brazilians pay in dollars”","part","Half true","Beef, soy and coffee follow the international price and the exchange rate. But the price here also depends on domestic supply and the cattle cycle, and 71% of the beef still stays in Brazil.",["cepea","tribuna"]],
+ ["Circulates in favor of the MST","“Family farming produces 70% of Brazil's food”","part","No defined basis","The Census reports 23% of the value of agricultural production. That denominator is not the same as quantity of food. Without its own metric and source, the 70% claim has not been demonstrated.",["censo","fpa"]],
+ ["Circulates in favor of the MST","“The MST is the largest organic rice producer in Latin America”","ok","True","According to Irga, for more than a decade. About 16,000 tonnes in the 2022/23 season, from 352 families.",["mst"]],
+ ["Circulates against agribusiness","“Exporting beef leaves Brazilians without beef”","part","Half true","The export record (28.7% of production) reduced domestic supply and helped push up the price, according to Cepea. But most of the beef still stays in the country.",["cepea"]],
+ ["Circulates on both sides","“Beef in the basic food basket was the opposition's idea”","part","Half true","The amendment came from the opposition, but Lula also supported including it. It passed 447 to 3.",["cesta"]]
+];
+document.getElementById('myths').innerHTML=M.map(m=>`<article class="myth"><span class="side">${m[0]}</span><span class="claim">${m[1]}</span><div><span class="tag ${m[2]}">${m[3]}</span></div><p>${m[4]}</p><span class="src">${m[5].map(L).join('')}</span></article>`).join('');
+})();
+</script>
+
+</body></html>
