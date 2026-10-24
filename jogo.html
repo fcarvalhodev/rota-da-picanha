@@ -1,220 +1,204 @@
 <!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Açougue da Verdade</title>
-<meta name="description" content="No balcão do açougue todo mundo tem uma teoria sobre o preço da picanha. Corte o boato do fato, sem deixar gordura.">
+<title>O Ciclo do Boi</title>
+<meta name="description" content="Jogo da Rota da Picanha: cuide de uma fazenda de 2022 a 2026, decida quando vender as vacas e descubra por que a picanha sobe e desce.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="https://fcarvalhodev.github.io/rotas/jogos/jogo.css">
+<style>
+:root{
+  --bg:#f3f1ea; --paper:#fbfaf6; --ink:#1c1b1f; --muted:#5b5a63; --line:#d9d5ca; --soft:#ebe7dc;
+  --doc:#1f6b45; --doc-soft:#dcefe3; --open:#5b4bb0; --open-soft:#e7e3f6; --alleg:#a3501a; --alleg-soft:#f8e6d7; --no:#a12a2a; --no-soft:#f6dede;
+  --display:"Archivo","Arial Narrow",Impact,sans-serif;
+  --ui:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121216; --paper:#1a1a20; --ink:#ecebf0; --muted:#a3a2ad; --line:#2e2d36; --soft:#24232b;
+  --doc:#6fd39c; --doc-soft:#173326; --open:#ab9ff0; --open-soft:#29254a; --alleg:#f0a066; --alleg-soft:#3a2516; --no:#f19b9b; --no-soft:#3a1c1c;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121216; --paper:#1a1a20; --ink:#ecebf0; --muted:#a3a2ad; --line:#2e2d36; --soft:#24232b;
+  --doc:#6fd39c; --doc-soft:#173326; --open:#ab9ff0; --open-soft:#29254a; --alleg:#f0a066; --alleg-soft:#3a2516; --no:#f19b9b; --no-soft:#3a1c1c;
+  color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;padding-bottom:env(safe-area-inset-bottom,0px)}
+[hidden]{display:none!important}
+a{color:inherit}
+.wrap{max-width:860px;margin:0 auto;padding-inline:16px}
+header.g{padding-block:26px 8px;display:grid;gap:10px}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{margin:0;font-family:var(--display);font-stretch:62%;font-weight:900;font-size:clamp(52px,13vw,104px);line-height:.86;text-transform:uppercase;overflow-wrap:anywhere}
+h2{font-family:var(--display);font-stretch:66%;font-weight:800;font-size:clamp(30px,6.5vw,44px);line-height:.95;text-transform:uppercase;margin:0 0 10px}
+h3{font-family:var(--ui);font-size:19px;line-height:1.25;margin:0 0 6px}
+.lede{margin:0;max-width:64ch;font-size:18px}
+.how{margin:0;font-family:var(--ui);font-size:15px;color:var(--muted)}
+.btn{font-family:var(--ui);font-weight:800;font-size:17px;border:0;border-radius:999px;padding:12px 20px;background:var(--accent);color:var(--paper);cursor:pointer;min-height:48px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;justify-content:center}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+.btn:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.btn[disabled]{opacity:.45;cursor:default}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.tg{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;white-space:nowrap;vertical-align:2px}
+.tg.doc{background:var(--doc-soft);color:var(--doc);border:1px solid var(--doc)}
+.tg.open{background:var(--open-soft);color:var(--open);border:1px dashed var(--open)}
+.tg.alleg{background:var(--alleg-soft);color:var(--alleg);border:1px solid var(--alleg)}
+.tg.no{background:var(--no-soft);color:var(--no);border:1px solid var(--no)}
+.facts{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.facts li{background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--c,var(--line));border-radius:8px;padding:12px 14px}
+.facts li b{font-family:var(--ui)}
+.facts li small{display:block;margin-top:4px;font-family:var(--ui);font-size:13px;color:var(--muted)}
+.facts li small a{color:var(--muted)}
+.facts .yr{font-family:var(--mono);font-size:12px;color:var(--muted);margin-right:6px}
+section.blk{margin-block:26px}
+.note{font-family:var(--ui);font-size:14px;color:var(--muted)}
+.end{border:2px solid var(--accent);border-radius:12px;background:var(--paper);padding:18px;display:grid;gap:12px}
+footer.g{margin-block:36px 28px;font-family:var(--ui);font-size:14px;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
 <style>
 :root{--accent:#4f6b17;--hero:#3e5512}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--accent:#a9c95a;--hero:#3e5512}}
 :root[data-theme="dark"]{--accent:#a9c95a;--hero:#3e5512}
-.hero{background:var(--hero);border-color:var(--hero)}.hero .go a{color:var(--hero)}
+
+</style>
+<style>
+.game{display:grid;gap:12px;margin-top:8px}
+.yr{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.yr b{font-family:var(--display);font-stretch:70%;font-weight:900;font-size:44px;line-height:1;color:var(--accent)}
+.yr span{font-family:var(--ui);font-size:14px;color:var(--muted)}
+.event{background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--accent);border-radius:10px;padding:10px 12px;font-family:var(--ui);font-size:15px;line-height:1.4}
+.farm{position:relative;border-radius:14px;padding:12px;background:linear-gradient(180deg,#bfe3a5,#8cc56b);border:3px solid #6b4a2b;min-height:170px;display:grid;gap:8px;align-content:start}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .farm{background:linear-gradient(180deg,#36502a,#283d1f)}}
+:root[data-theme="dark"] .farm{background:linear-gradient(180deg,#36502a,#283d1f)}
+.pen{display:grid;grid-template-columns:96px 1fr;gap:8px;align-items:center;font-family:var(--ui);font-size:13px;font-weight:700;color:#1c2a12}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .pen{color:#e6f1dc}}
+:root[data-theme="dark"] .pen{color:#e6f1dc}
+.pen .an{font-size:26px;line-height:1.15;letter-spacing:1px;word-break:break-all}
+.pen .an .gone{opacity:.25;filter:grayscale(1)}
+.meters{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mt{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px;font-family:var(--ui);font-size:13px;display:grid;gap:6px}
+.mt b{font-size:22px;font-family:var(--display);font-stretch:70%;font-weight:900;line-height:1}
+.mt .bar{height:10px;border-radius:999px;background:var(--soft);overflow:hidden}
+.mt .bar i{display:block;height:100%;background:var(--c);transition:width .6s ease}
+.ctrl{display:grid;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px}
+.step{display:flex;align-items:center;gap:12px;font-family:var(--ui);font-weight:700;font-size:16px;flex-wrap:wrap}.step>span{flex:1 0 100%}
+.step button{width:52px;height:52px;border-radius:50%;border:2px solid var(--line);background:var(--bg);color:var(--ink);font-size:26px;font-weight:900;cursor:pointer}
+.step output{font-family:var(--display);font-stretch:70%;font-weight:900;font-size:40px;min-width:36px;text-align:center}
+.ctrl .row .btn{flex:1 1 180px}
+.res{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-family:var(--ui);font-size:15px;line-height:1.45;min-height:48px}
+.speech{display:flex;gap:10px;align-items:flex-start;font-family:var(--ui);font-size:15px}
+.speech .av{font-size:28px;line-height:1}
+.speech p{margin:0;background:var(--soft);border-radius:12px 12px 12px 2px;padding:8px 12px}
+.hist{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;align-items:end;height:140px;margin-top:8px}
+.hist div{display:grid;gap:4px;justify-items:center;font-family:var(--mono);font-size:12px}
+.hist i{display:block;width:70%;background:var(--accent);border-radius:6px 6px 0 0}
+.end h2{margin:0}
 </style>
 </head><body>
 <style>/* barra comum das Rotas */.rotas-bar .rb-lang{margin-left:auto;color:var(--accent);font-weight:600}.rotas-bar{border-bottom:1px solid var(--line);background:var(--bg);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}.rotas-bar>div{max-width:880px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}.rotas-bar a{color:var(--muted);text-decoration:none;padding-block:2px;border-bottom:2px solid transparent}.rotas-bar a:hover{color:var(--ink)}.rotas-bar a[aria-current]{color:var(--ink);border-bottom-color:var(--accent)}.rotas-bar .rb-home{color:var(--accent);font-weight:600}.rv-btn{display:inline-flex;align-items:center;gap:8px;justify-self:start;font-family:var(--ui,system-ui);font-weight:800;font-size:16px;letter-spacing:.02em;text-decoration:none;color:var(--paper,#fff);background:var(--accent);padding:10px 16px;border-radius:999px;box-shadow:0 2px 0 rgba(0,0,0,.15)}.rv-btn:hover{filter:brightness(1.08)}.rv-btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}.rotas-bar a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}</style><nav class="rotas-bar" aria-label="Rotas"><div><a class="rb-home" href="https://fcarvalhodev.github.io/rotas/">Rotas</a><a href="https://fcarvalhodev.github.io/rota-washington/">Washington</a><a href="https://fcarvalhodev.github.io/rota-master/">Master</a><a href="https://fcarvalhodev.github.io/rota-curitiba/">Curitiba</a><a href="https://fcarvalhodev.github.io/rota-da-fe/">Fé</a><a href="https://fcarvalhodev.github.io/rota-esplanada/">Esplanada</a><a href="https://fcarvalhodev.github.io/rota-itamaraty/">Itamaraty</a><a href="https://fcarvalhodev.github.io/rota-da-picanha/" aria-current="page">Picanha</a><a href="https://fcarvalhodev.github.io/rota-do-ibge/">IBGE</a><a href="https://fcarvalhodev.github.io/rota-velho-chico/">Velho Chico</a><a href="https://fcarvalhodev.github.io/rota-do-tesouro/">Tesouro</a><a href="https://fcarvalhodev.github.io/rota-rouanet/">Rouanet</a><a href="https://fcarvalhodev.github.io/rota-dos-ventos/">Ventos</a><a href="https://fcarvalhodev.github.io/rota-do-algoritmo/">Algoritmo</a><a href="https://fcarvalhodev.github.io/rota-do-posto/">Posto</a><a href="https://fcarvalhodev.github.io/rota-das-queimadas/">Queimadas</a><a href="https://fcarvalhodev.github.io/rota-dos-games/">Games</a><a href="https://fcarvalhodev.github.io/rota-do-contracheque/">Contracheque</a><a href="https://fcarvalhodev.github.io/rota-palantir/">Palantir</a><a class="rb-lang" href="en/jogo.html" hreflang="en" lang="en">EN</a></div></nav>
-<main class="jg" id="jg" aria-live="polite"><noscript>Este jogo precisa de JavaScript. <a href="index.html">Ler a rota</a>.</noscript></main>
+<main class="wrap">
+<header class="g">
+  <span class="kicker">Rota da Picanha · jogo</span>
+  <h1>O Ciclo do Boi</h1>
+  <p class="lede">Todo candidato promete picanha barata. Mas quem decide o preço é o boi. Nesta fazenda, você é o criador de 2022 a 2026: venda as vacas quando quiser e veja o que acontece com o preço.</p>
+  <p class="how">Como jogar: a cada ano, escolha quantas vacas vender e feche o ano. Vaca vendida vira dinheiro agora; vaca que fica vira bezerro e boi dois anos depois. O botão de promessa está lá para você testar.</p>
+</header>
+
+<div class="game">
+  <div class="yr"><b id="yr">2022</b><span id="yrN">ano 1 de 5</span></div>
+  <div class="event" id="event" aria-live="polite"></div>
+  <div class="farm" aria-label="Sua fazenda">
+    <div class="pen"><span>Vacas</span><span class="an" id="pV"></span></div>
+    <div class="pen"><span>Bezerros crescendo</span><span class="an" id="pC"></span></div>
+    <div class="pen"><span>Bois prontos para vender</span><span class="an" id="pB"></span></div>
+  </div>
+  <div class="meters">
+    <div class="mt" style="--c:var(--accent)"><span>Preço do boi este ano</span><b id="price">—</b><span class="bar"><i id="priceB"></i></span></div>
+    <div class="mt" style="--c:var(--doc)"><span>Caixa da fazenda</span><b id="cash">0</b><span class="bar"><i id="cashB"></i></span></div>
+  </div>
+  <div class="ctrl">
+    <div class="step"><span>Vacas para vender este ano:</span><button type="button" id="minus" aria-label="Menos uma vaca">−</button><output id="n" aria-live="polite">0</output><button type="button" id="plus" aria-label="Mais uma vaca">+</button></div>
+    <div class="row"><button class="btn" type="button" id="close">Fechar o ano ▶</button><button class="btn ghost" type="button" id="promise">📣 Prometer picanha barata</button></div>
+  </div>
+  <div class="res" id="res" aria-live="polite">Os bois prontos são vendidos sozinhos. Você decide quantas vacas vende também. Cada vaca que fica custa ração e pasto, mas tem bezerro: a cada duas vacas, um bezerro, que vira boi dois anos depois.</div>
+  <div class="speech"><span class="av" aria-hidden="true">🎤</span><p id="pol"><b>O candidato:</b> “Comigo a picanha vai ficar barata!”</p></div>
+</div>
+<section class="blk end" id="end" hidden aria-live="polite">
+  <h2 id="endT"></h2>
+  <p id="endB"></p>
+  <div class="hist" id="hist" role="img"></div>
+  <p class="note" id="histN"></p>
+  <h3 style="margin-top:6px">Por que a picanha sobe e desce, na vida real</h3>
+  <ul class="facts" id="facts"></ul>
+  <div class="row"><button class="btn" type="button" id="again">Jogar de novo</button><a class="btn ghost" href="index.html">Ler a Rota da Picanha</a></div>
+</section>
+
+<footer class="g">
+  <p>Fatos até 12 de outubro de 2026. Investigação não é condenação. Cada fato do jogo tem fonte; os selos seguem a <a href="https://fcarvalhodev.github.io/rotas/metodologia.html">metodologia das Rotas</a>.</p>
+  <p class="row"><a class="btn ghost" href="index.html">Ler a rota completa</a><a class="btn ghost" href="quiz.html">Fazer o quiz da rota</a></p>
+</footer>
+</main>
 <script>
-window.JG_DATA={
- "kicker": "Rota da Picanha · jogo",
- "title": "Açougue da Verdade",
- "host": [
-  "🔪",
-  "Seu Zé do açougue"
- ],
- "emo": "🥩",
- "intro": "No balcão do açougue todo mundo tem uma teoria sobre o preço da picanha. Corte o boato do fato, sem deixar gordura.",
- "rounds": [
-  {
-   "type": "boato",
-   "title": "Conversas do balcão",
-   "how": "leia a frase que circula e diga se é Verdade, Meia verdade, Falso ou Sem prova.",
-   "n": 7,
-   "items": [
-    {
-     "c": "A picanha está cara por culpa do Lula.",
-     "v": "m",
-     "e": "Não há base para atribuir o preço exclusivamente ao presidente. Oferta de gado, exportação, câmbio, demanda, custos e políticas públicas podem influenciar.",
-     "s": []
-    },
-    {
-     "c": "Lula prometeu picanha e não entregou.",
-     "v": "m",
-     "e": "A promessa existiu. Os dados mostrados não permitem concluir como mudou o poder de compra histórico do salário mínimo.",
-     "s": []
-    },
-    {
-     "c": "Com Bolsonaro a carne era barata.",
-     "v": "m",
-     "e": "A picanha subiu 38% no IPCA entre 2020 e 2022. Alta percentual não determina, sozinha, nível de preço ou poder de compra.",
-     "s": []
-    },
-    {
-     "c": "Exportar carne deixa o brasileiro sem carne.",
-     "v": "m",
-     "e": "Sobra menos carne aqui, mas 7 de cada 10 pedaços continuam no Brasil.",
-     "s": []
-    },
-    {
-     "c": "A picanha está cara por culpa do Lula",
-     "v": "u",
-     "e": "O preço tem múltiplos fatores: ciclo do boi, câmbio, demanda, exportação, custos e políticas públicas. A comparação de altas em períodos diferentes não isola a responsabilidade de um presidente.",
-     "s": [
-      [
-       "CNN Brasil: ciclo do boi",
-       "https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/"
-      ],
-      [
-       "Cepea: exportação",
-       "https://www.portaldoagronegocio.com.br/pecuaria/bovinos-de-corte/noticias/producao-de-carne-bovina-nao-acompanha-crescimento-das-exportacoes-aponta-cepea"
-      ],
-      [
-       "IBGE/SIDRA: IPCA por período",
-       "https://sidra.ibge.gov.br/tabela/7060"
-      ]
-     ],
-     "who": "Circula contra Lula"
-    },
-    {
-     "c": "Lula prometeu picanha e não entregou",
-     "v": "m",
-     "e": "A promessa existiu. Pelo IPCA a picanha subiu menos que a inflação, mas pelo atacado corrigido subiu 25,7% desde 2023, e a conta apresentada não permite concluir equivalência de poder de compra com 2023.",
-     "s": [
-      [
-       "Revista Oeste: picanha e cervejinha",
-       "https://revistaoeste.com/politica/lula-volta-a-falar-em-cervejinha-e-picanha/"
-      ],
-      [
-       "IBGE/SIDRA: IPCA por período",
-       "https://sidra.ibge.gov.br/tabela/7060"
-      ],
-      [
-       "CNN Brasil: ciclo do boi",
-       "https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/"
-      ]
-     ],
-     "who": "Circula contra Lula"
-    },
-    {
-     "c": "Circula a favor de Bolsonaro",
-     "v": "m",
-     "e": "Depende da medida",
-     "s": [],
-     "who": "“Com Bolsonaro a carne era barata”"
-    },
-    {
-     "c": "A picanha nunca esteve tão barata",
-     "v": "m",
-     "e": "No varejo caiu 25,9% entre abril de 2025 e abril de 2026, mas voltou a subir 10,7% no primeiro semestre de 2026, e no atacado, corrigido pela inflação, está 25,7% acima de 2023.",
-     "s": [
-      [
-       "Central do Varejo / Neogrid",
-       "https://centraldovarejo.com.br/picanha-cai-26-e-churrasco-fica-mais-barato-para-o-brasileiro-em-2026/"
-      ],
-      [
-       "CNN Brasil: ciclo do boi",
-       "https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/"
-      ]
-     ],
-     "who": "Circula a favor de Lula"
-    },
-    {
-     "c": "O agro vende em dólar e o brasileiro paga em dólar",
-     "v": "m",
-     "e": "Carne, soja e café seguem o preço internacional e o câmbio. Mas o preço daqui também depende da oferta interna e do ciclo do boi, e 71% da carne ainda fica no Brasil.",
-     "s": [
-      [
-       "Cepea: exportação",
-       "https://www.portaldoagronegocio.com.br/pecuaria/bovinos-de-corte/noticias/producao-de-carne-bovina-nao-acompanha-crescimento-das-exportacoes-aponta-cepea"
-      ],
-      [
-       "Tribuna de Minas",
-       "https://tribunademinas.com.br/noticias/economia/30-04-2026/carne-bovina-preco-recorde.html"
-      ]
-     ],
-     "who": "Circula nos dois lados"
-    },
-    {
-     "c": "Circula a favor do MST",
-     "v": "m",
-     "e": "Sem base definida",
-     "s": [],
-     "who": "“A agricultura familiar produz 70% da comida do Brasil”"
-    },
-    {
-     "c": "O MST é o maior produtor de arroz orgânico da América Latina",
-     "v": "v",
-     "e": "Segundo o Irga, há mais de uma década. Foram cerca de 16 mil toneladas na safra 2022/23, de 352 famílias.",
-     "s": [
-      [
-       "Extra Classe",
-       "https://www.extraclasse.org.br/?p=90070"
-      ]
-     ],
-     "who": "Circula a favor do MST"
-    },
-    {
-     "c": "Exportar carne deixa o brasileiro sem carne",
-     "v": "m",
-     "e": "O recorde de exportação (28,7% da produção) reduziu a oferta interna e ajudou a subir o preço, segundo o Cepea. Mas a maior parte da carne continua no país.",
-     "s": [
-      [
-       "Cepea: exportação",
-       "https://www.portaldoagronegocio.com.br/pecuaria/bovinos-de-corte/noticias/producao-de-carne-bovina-nao-acompanha-crescimento-das-exportacoes-aponta-cepea"
-      ]
-     ],
-     "who": "Circula contra o agro"
-    },
-    {
-     "c": "Carne na cesta básica foi ideia da oposição",
-     "v": "m",
-     "e": "A emenda veio da oposição, mas Lula também defendia a inclusão. Foi aprovada por 447 a 3.",
-     "s": [
-      [
-       "A Gazeta: carne na cesta",
-       "https://www.agazeta.com.br/economia/camara-aprova-inclusao-da-carne-na-cesta-basica-com-aliquota-zero-0724"
-      ]
-     ],
-     "who": "Circula nos dois lados"
-    }
-   ]
-  }
- ],
- "ranks": [
-  [
-   0,
-   "Levou gato por lebre."
-  ],
-  [
-   40,
-   "Carne de segunda: acertou algumas."
-  ],
-  [
-   65,
-   "Açougueiro de confiança."
-  ],
-  [
-   90,
-   "Picanha nobre: corte perfeito."
-  ]
- ],
- "quips": {
-  "ok": [
-   "Isso! Pode publicar.",
-   "Na mosca. A fonte agradece.",
-   "Acertou. O grupo da família vai ter que engolir.",
-   "Boa! Checador raiz."
-  ],
-  "no": [
-   "Errou. Mas pelo menos você não compartilhou.",
-   "Quase. Leia a explicação antes de mandar no zap.",
-   "Não foi dessa vez. Acontece até com jornalista.",
-   "Ops. A tia do zap venceu essa."
-  ]
- },
- "full": "index.html",
- "updated": "Rotas · Rota da Picanha"
-};
+
+const LBL={doc:"Documentado",open:"Em aberto",alleg:"Alegação",no:"Não demonstrado"};
+const $=id=>document.getElementById(id);
+function factLi(f,withYear){
+ const li=document.createElement("li");li.style.setProperty("--c","var(--"+f.ev+")");
+ const tg=document.createElement("span");tg.className="tg "+f.ev;tg.textContent=LBL[f.ev];
+ const b=document.createElement("b");b.textContent=" "+f.t+(/[?!.…]$/.test(f.t)?" ":". ");
+ if(withYear&&f.y){const y=document.createElement("span");y.className="yr";y.textContent=f.y;li.append(y)}
+ li.append(tg,b,document.createTextNode(f.b+" "));
+ if(f.src){const sm=document.createElement("small");const a=document.createElement("a");a.href=f.src[1];a.target="_blank";a.rel="noopener";a.textContent="Fonte: "+f.src[0];sm.append(a);li.append(sm)}
+ return li;
+}
+const YEARS=[{"y": 2022, "base": 105, "cost": 6, "t": "O boi está caro. A China compra muita carne brasileira e o dólar está alto."}, {"y": 2023, "base": 72, "cost": 6, "t": "O boi ficou barato: tem muito boi no mercado. Os vizinhos estão vendendo vacas para fazer caixa."}, {"y": 2024, "base": 76, "cost": 9, "t": "O boi segue barato, e ração, milho, frete e energia ficaram mais caros. Manter vaca pesa no bolso."}, {"y": 2025, "base": 95, "cost": 8, "t": "A exportação está forte e o dólar subiu. O preço do boi começa a reagir."}, {"y": 2026, "base": 112, "cost": 8, "t": "Falta boi: com menos vacas, nasceram menos bezerros. E os frigoríficos correm para exportar à China antes da cota."}];
+const FACTS=[{"ev": "doc", "t": "1. O ciclo do boi", "b": "Em 2023 e 2024, quando o boi estava barato, muitos criadores venderam as vacas. Com menos mães, nasceram menos bezerros, e hoje tem menos boi para vender. Esse vaivém leva alguns anos, e nenhum governo faz uma vaca ter bezerro mais rápido.", "src": ["CNN Brasil: ciclo do boi", "https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/"]}, {"ev": "doc", "t": "2. Muita carne vai para fora", "b": "De cada 10 pedaços de carne, 7 ficam no Brasil e 3 vão para fora. Metade do que sai vai para a China.", "src": ["Cepea: exportação", "https://www.portaldoagronegocio.com.br/pecuaria/bovinos-de-corte/noticias/producao-de-carne-bovina-nao-acompanha-crescimento-das-exportacoes-aponta-cepea"]}, {"ev": "doc", "t": "3. Lá fora pagam em dólar", "b": "O frigorífico pode vender aqui ou lá fora. Se lá fora pagam mais, ele só vende aqui pelo mesmo preço. Por isso a carne daqui acompanha o preço de fora.", "src": ["Gazeta do Paraná: China", "https://gazetadoparana.com.br/artigo/preco-da-carne-bovina-sobe-em-2026-e-picanha-acumula-alta-de-mais-de-10-no-semestre"]}, {"ev": "doc", "t": "4. Criar o boi ficou mais caro", "b": "Ração, milho, combustível, frete e energia subiram, e a seca castiga o pasto. Quando custa mais criar o boi, a carne chega mais cara.", "src": ["Tribuna de Minas: custos", "https://tribunademinas.com.br/noticias/economia/30-04-2026/carne-bovina-preco-recorde.html"]}, {"ev": "doc", "t": "E o governo?", "b": "Pelo IPCA, a picanha subiu 38% de 2020 a 2022, com Bolsonaro, e 7,3% de 2023 a setembro de 2026, com Lula. São janelas de tamanhos diferentes, e os números não provam que o governo causou a alta ou a queda. Políticas públicas mexem em custos e câmbio, mas não decidem sozinhas o preço.", "src": ["IBGE/SIDRA: IPCA por período", "https://sidra.ibge.gov.br/tabela/7060"]}, {"ev": "doc", "t": "Quanto trabalho paga 1 kg", "b": "Quem ganha um salário mínimo precisa trabalhar cerca de 8 horas para comprar 1 kg de picanha no varejo, pelo preço de abril de 2026.", "src": ["Neogrid: preço no varejo", "https://centraldovarejo.com.br/picanha-cai-26-e-churrasco-fica-mais-barato-para-o-brasileiro-em-2026/"]}];
+
+const NORMAL=7;
+let yi,V,calves,ready,cash,n,prices,promises;
+const POL=["“Comigo a picanha vai ficar barata!”","“A picanha vai voltar para a mesa do povo!”","“A culpa da carne cara é do outro lado!”","“Picanha no fim de semana, palavra de candidato!”","“Vou mandar baixar a carne!”"];
+function cows(k,total,ch){let s="";for(let i=0;i<total;i++)s+=i<k?ch:"·";return s}
+function price(){const y=YEARS[yi];const supply=ready+n;return Math.max(40,Math.round(y.base*(1+0.05*(NORMAL-supply))))}
+function draw(){const y=YEARS[yi];$("yr").textContent=y.y;$("yrN").textContent="ano {i} de {n}".replace("{i}",yi+1).replace("{n}",YEARS.length);$("event").textContent=y.t;
+ $("pV").textContent="";const keep=V-n;for(let i=0;i<V;i++){const s=document.createElement("span");s.textContent="🐄";if(i>=keep)s.className="gone";$("pV").append(s)}
+ if(!V)$("pV").textContent="nenhuma vaca";
+ $("pC").textContent=calves[yi+1]?"🐮".repeat(calves[yi+1]):"—";
+ $("pB").textContent=ready?"🐂".repeat(ready):"nenhum boi";
+ const p=price();$("price").textContent=p+(p>=100?" · alto":p<=80?" · baixo":" · médio");$("priceB").style.width=Math.min(100,p/1.3)+"%";
+ $("cash").textContent=Math.round(cash);$("cashB").style.width=Math.max(0,Math.min(100,cash/2.8))+"%";
+ $("n").textContent=n;$("minus").disabled=n<=0;$("plus").disabled=n>=V}
+function closeYear(){const y=YEARS[yi];const p=price();prices.push(p);
+ const income=(ready+n)*p/10, cost=Math.round((V-n)*y.cost*0.5);cash+=income-cost;
+ const kept=V-n;calves[yi+2]=(calves[yi+2]||0)+Math.floor(kept/2);
+ $("res").textContent="Em {y} você vendeu {a} animais pelo preço {p} e gastou {c} mantendo {k} vacas.".replace("{y}",y.y).replace("{a}",ready+n).replace("{p}",p).replace("{c}",cost).replace("{k}",kept)+" "+(n>=3&&p<85?"Vendeu vacas com o boi barato: faz caixa agora, mas daqui a dois anos vai ter menos bezerro.":kept>=6&&p<85?"Segurou as vacas no ano barato: aperta o caixa agora, mas garante bezerros.":"");
+ V=kept;yi++;
+ if(yi>=YEARS.length)return finish();
+ ready=2+(calves[yi]||0);n=0;$("pol").textContent="";const b=document.createElement("b");b.textContent="O candidato: ";$("pol").append(b,document.createTextNode(POL[yi%POL.length]));draw()}
+function finish(){$("close").disabled=true;$("minus").disabled=true;$("plus").disabled=true;$("promise").disabled=true;
+ const final=Math.round(cash+V*prices[prices.length-1]/12);
+ let t,b;
+ if(final>=250){t="Pecuarista do ano";b="Você vendeu caro e segurou as vacas quando o boi estava barato. Terminou com {f} no caixa, contando as vacas.".replace("{f}",final)}
+ else if(final>=235){t="Fazenda no azul";b="Terminou com {f} no caixa, contando as vacas. O ciclo do boi pegou você em algum ano, como pega todo criador.".replace("{f}",final)}
+ else{t="O ciclo te pegou";b="Terminou com {f} no caixa, contando as vacas. Vendeu na hora errada ou segurou demais: no ciclo do boi, o que resolve o ano de hoje pode complicar o de daqui a dois anos.".replace("{f}",final)}
+ b+=" "+"E as suas {n} promessas de picanha barata? Não mexeram em nada. O preço do boi no jogo foi este, ano a ano:".replace("{n}",promises);
+ $("endT").textContent=t;$("endB").textContent=b;
+ const h=$("hist");h.textContent="";const mx=Math.max(...prices);
+ prices.forEach((p,i)=>{const d=document.createElement("div");const bar=document.createElement("i");bar.style.height=Math.round(p/mx*100)+"px";const l=document.createElement("span");l.textContent=YEARS[i].y;const v=document.createElement("span");v.textContent=p;d.append(v,bar,l);h.append(d)});
+ h.setAttribute("aria-label",prices.map((p,i)=>YEARS[i].y+": "+p).join(", "));
+ $("histN").textContent="Números do jogo, não preços reais. Mas o desenho é o da vida real: caro em 2022, barato em 2023 e 2024, caro de novo em 2026.";
+ $("facts").textContent="";FACTS.forEach(f=>$("facts").append(factLi(f,false)));
+ $("end").hidden=false;setTimeout(()=>$("end").scrollIntoView({behavior:"smooth",block:"start"}),300)}
+function start(){yi=0;V=8;calves={1:2,0:0};ready=3;cash=40;n=0;prices=[];promises=0;
+ ["close","minus","plus","promise"].forEach(id=>$(id).disabled=false);$("end").hidden=true;
+ $("res").textContent="Os bois prontos são vendidos sozinhos. Você decide quantas vacas vende também. Cada vaca que fica custa ração e pasto, mas tem bezerro: a cada duas vacas, um bezerro, que vira boi dois anos depois.";draw()}
+$("minus").addEventListener("click",()=>{if(n>0){n--;draw()}});
+$("plus").addEventListener("click",()=>{if(n<V){n++;draw()}});
+$("close").addEventListener("click",closeYear);
+$("promise").addEventListener("click",()=>{promises++;$("res").textContent="Você prometeu picanha barata. O boi não ouviu. O preço deste ano continua {p}.".replace("{p}",price())+" "+"Política pública mexe em custo e câmbio, mas não faz vaca ter bezerro mais rápido."});
+$("again").addEventListener("click",()=>{start();$("yr").scrollIntoView({behavior:"smooth",block:"start"})});
+start();
+
 </script>
-<script src="https://fcarvalhodev.github.io/rotas/jogos/jogo.js"></script>
 </body></html>

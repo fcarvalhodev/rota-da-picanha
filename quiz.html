@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Açougue da Verdade</title>
+<meta name="description" content="No balcão do açougue todo mundo tem uma teoria sobre o preço da picanha. Corte o boato do fato, sem deixar gordura.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fcarvalhodev.github.io/rotas/jogos/jogo.css">
+<style>
+:root{--accent:#4f6b17;--hero:#3e5512}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--accent:#a9c95a;--hero:#3e5512}}
+:root[data-theme="dark"]{--accent:#a9c95a;--hero:#3e5512}
+.hero{background:var(--hero);border-color:var(--hero)}.hero .go a{color:var(--hero)}
+</style>
+</head><body>
+<style>/* barra comum das Rotas */.rotas-bar .rb-lang{margin-left:auto;color:var(--accent);font-weight:600}.rotas-bar{border-bottom:1px solid var(--line);background:var(--bg);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}.rotas-bar>div{max-width:880px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}.rotas-bar a{color:var(--muted);text-decoration:none;padding-block:2px;border-bottom:2px solid transparent}.rotas-bar a:hover{color:var(--ink)}.rotas-bar a[aria-current]{color:var(--ink);border-bottom-color:var(--accent)}.rotas-bar .rb-home{color:var(--accent);font-weight:600}.rv-btn{display:inline-flex;align-items:center;gap:8px;justify-self:start;font-family:var(--ui,system-ui);font-weight:800;font-size:16px;letter-spacing:.02em;text-decoration:none;color:var(--paper,#fff);background:var(--accent);padding:10px 16px;border-radius:999px;box-shadow:0 2px 0 rgba(0,0,0,.15)}.rv-btn:hover{filter:brightness(1.08)}.rv-btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}.rotas-bar a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}</style><nav class="rotas-bar" aria-label="Rotas"><div><a class="rb-home" href="https://fcarvalhodev.github.io/rotas/">Rotas</a><a href="https://fcarvalhodev.github.io/rota-washington/">Washington</a><a href="https://fcarvalhodev.github.io/rota-master/">Master</a><a href="https://fcarvalhodev.github.io/rota-curitiba/">Curitiba</a><a href="https://fcarvalhodev.github.io/rota-da-fe/">Fé</a><a href="https://fcarvalhodev.github.io/rota-esplanada/">Esplanada</a><a href="https://fcarvalhodev.github.io/rota-itamaraty/">Itamaraty</a><a href="https://fcarvalhodev.github.io/rota-da-picanha/" aria-current="page">Picanha</a><a href="https://fcarvalhodev.github.io/rota-do-ibge/">IBGE</a><a href="https://fcarvalhodev.github.io/rota-velho-chico/">Velho Chico</a><a href="https://fcarvalhodev.github.io/rota-do-tesouro/">Tesouro</a><a href="https://fcarvalhodev.github.io/rota-rouanet/">Rouanet</a><a href="https://fcarvalhodev.github.io/rota-dos-ventos/">Ventos</a><a href="https://fcarvalhodev.github.io/rota-do-algoritmo/">Algoritmo</a><a href="https://fcarvalhodev.github.io/rota-do-posto/">Posto</a><a href="https://fcarvalhodev.github.io/rota-das-queimadas/">Queimadas</a><a href="https://fcarvalhodev.github.io/rota-dos-games/">Games</a><a href="https://fcarvalhodev.github.io/rota-do-contracheque/">Contracheque</a><a href="https://fcarvalhodev.github.io/rota-palantir/">Palantir</a><a class="rb-lang" href="en/quiz.html" hreflang="en" lang="en">EN</a></div></nav>
+<main class="jg" id="jg" aria-live="polite"><noscript>Este jogo precisa de JavaScript. <a href="index.html">Ler a rota</a>.</noscript></main>
+<script>
+window.JG_DATA={
+ "kicker": "Rota da Picanha · jogo",
+ "title": "Açougue da Verdade",
+ "host": [
+  "🔪",
+  "Seu Zé do açougue"
+ ],
+ "emo": "🥩",
+ "intro": "No balcão do açougue todo mundo tem uma teoria sobre o preço da picanha. Corte o boato do fato, sem deixar gordura.",
+ "rounds": [
+  {
+   "type": "boato",
+   "title": "Conversas do balcão",
+   "how": "leia a frase que circula e diga se é Verdade, Meia verdade, Falso ou Sem prova.",
+   "n": 7,
+   "items": [
+    {
+     "c": "A picanha está cara por culpa do Lula.",
+     "v": "m",
+     "e": "Não há base para atribuir o preço exclusivamente ao presidente. Oferta de gado, exportação, câmbio, demanda, custos e políticas públicas podem influenciar.",
+     "s": []
+    },
+    {
+     "c": "Lula prometeu picanha e não entregou.",
+     "v": "m",
+     "e": "A promessa existiu. Os dados mostrados não permitem concluir como mudou o poder de compra histórico do salário mínimo.",
+     "s": []
+    },
+    {
+     "c": "Com Bolsonaro a carne era barata.",
+     "v": "m",
+     "e": "A picanha subiu 38% no IPCA entre 2020 e 2022. Alta percentual não determina, sozinha, nível de preço ou poder de compra.",
+     "s": []
+    },
+    {
+     "c": "Exportar carne deixa o brasileiro sem carne.",
+     "v": "m",
+     "e": "Sobra menos carne aqui, mas 7 de cada 10 pedaços continuam no Brasil.",
+     "s": []
+    },
+    {
+     "c": "A picanha está cara por culpa do Lula",
+     "v": "u",
+     "e": "O preço tem múltiplos fatores: ciclo do boi, câmbio, demanda, exportação, custos e políticas públicas. A comparação de altas em períodos diferentes não isola a responsabilidade de um presidente.",
+     "s": [
+      [
+       "CNN Brasil: ciclo do boi",
+       "https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/"
+      ],
+      [
+       "Cepea: exportação",
+       "https://www.portaldoagronegocio.com.br/pecuaria/bovinos-de-corte/noticias/producao-de-carne-bovina-nao-acompanha-crescimento-das-exportacoes-aponta-cepea"
+      ],
+      [
+       "IBGE/SIDRA: IPCA por período",
+       "https://sidra.ibge.gov.br/tabela/7060"
+      ]
+     ],
+     "who": "Circula contra Lula"
+    },
+    {
+     "c": "Lula prometeu picanha e não entregou",
+     "v": "m",
+     "e": "A promessa existiu. Pelo IPCA a picanha subiu menos que a inflação, mas pelo atacado corrigido subiu 25,7% desde 2023, e a conta apresentada não permite concluir equivalência de poder de compra com 2023.",
+     "s": [
+      [
+       "Revista Oeste: picanha e cervejinha",
+       "https://revistaoeste.com/politica/lula-volta-a-falar-em-cervejinha-e-picanha/"
+      ],
+      [
+       "IBGE/SIDRA: IPCA por período",
+       "https://sidra.ibge.gov.br/tabela/7060"
+      ],
+      [
+       "CNN Brasil: ciclo do boi",
+       "https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/"
+      ]
+     ],
+     "who": "Circula contra Lula"
+    },
+    {
+     "c": "Circula a favor de Bolsonaro",
+     "v": "m",
+     "e": "Depende da medida",
+     "s": [],
+     "who": "“Com Bolsonaro a carne era barata”"
+    },
+    {
+     "c": "A picanha nunca esteve tão barata",
+     "v": "m",
+     "e": "No varejo caiu 25,9% entre abril de 2025 e abril de 2026, mas voltou a subir 10,7% no primeiro semestre de 2026, e no atacado, corrigido pela inflação, está 25,7% acima de 2023.",
+     "s": [
+      [
+       "Central do Varejo / Neogrid",
+       "https://centraldovarejo.com.br/picanha-cai-26-e-churrasco-fica-mais-barato-para-o-brasileiro-em-2026/"
+      ],
+      [
+       "CNN Brasil: ciclo do boi",
+       "https://www.cnnbrasil.com.br/agro/ciclo-pecuario-e-menor-oferta-de-gado-elevam-preco-da-picanha/"
+      ]
+     ],
+     "who": "Circula a favor de Lula"
+    },
+    {
+     "c": "O agro vende em dólar e o brasileiro paga em dólar",
+     "v": "m",
+     "e": "Carne, soja e café seguem o preço internacional e o câmbio. Mas o preço daqui também depende da oferta interna e do ciclo do boi, e 71% da carne ainda fica no Brasil.",
+     "s": [
+      [
+       "Cepea: exportação",
+       "https://www.portaldoagronegocio.com.br/pecuaria/bovinos-de-corte/noticias/producao-de-carne-bovina-nao-acompanha-crescimento-das-exportacoes-aponta-cepea"
+      ],
+      [
+       "Tribuna de Minas",
+       "https://tribunademinas.com.br/noticias/economia/30-04-2026/carne-bovina-preco-recorde.html"
+      ]
+     ],
+     "who": "Circula nos dois lados"
+    },
+    {
+     "c": "Circula a favor do MST",
+     "v": "m",
+     "e": "Sem base definida",
+     "s": [],
+     "who": "“A agricultura familiar produz 70% da comida do Brasil”"
+    },
+    {
+     "c": "O MST é o maior produtor de arroz orgânico da América Latina",
+     "v": "v",
+     "e": "Segundo o Irga, há mais de uma década. Foram cerca de 16 mil toneladas na safra 2022/23, de 352 famílias.",
+     "s": [
+      [
+       "Extra Classe",
+       "https://www.extraclasse.org.br/?p=90070"
+      ]
+     ],
+     "who": "Circula a favor do MST"
+    },
+    {
+     "c": "Exportar carne deixa o brasileiro sem carne",
+     "v": "m",
+     "e": "O recorde de exportação (28,7% da produção) reduziu a oferta interna e ajudou a subir o preço, segundo o Cepea. Mas a maior parte da carne continua no país.",
+     "s": [
+      [
+       "Cepea: exportação",
+       "https://www.portaldoagronegocio.com.br/pecuaria/bovinos-de-corte/noticias/producao-de-carne-bovina-nao-acompanha-crescimento-das-exportacoes-aponta-cepea"
+      ]
+     ],
+     "who": "Circula contra o agro"
+    },
+    {
+     "c": "Carne na cesta básica foi ideia da oposição",
+     "v": "m",
+     "e": "A emenda veio da oposição, mas Lula também defendia a inclusão. Foi aprovada por 447 a 3.",
+     "s": [
+      [
+       "A Gazeta: carne na cesta",
+       "https://www.agazeta.com.br/economia/camara-aprova-inclusao-da-carne-na-cesta-basica-com-aliquota-zero-0724"
+      ]
+     ],
+     "who": "Circula nos dois lados"
+    }
+   ]
+  }
+ ],
+ "ranks": [
+  [
+   0,
+   "Levou gato por lebre."
+  ],
+  [
+   40,
+   "Carne de segunda: acertou algumas."
+  ],
+  [
+   65,
+   "Açougueiro de confiança."
+  ],
+  [
+   90,
+   "Picanha nobre: corte perfeito."
+  ]
+ ],
+ "quips": {
+  "ok": [
+   "Isso! Pode publicar.",
+   "Na mosca. A fonte agradece.",
+   "Acertou. O grupo da família vai ter que engolir.",
+   "Boa! Checador raiz."
+  ],
+  "no": [
+   "Errou. Mas pelo menos você não compartilhou.",
+   "Quase. Leia a explicação antes de mandar no zap.",
+   "Não foi dessa vez. Acontece até com jornalista.",
+   "Ops. A tia do zap venceu essa."
+  ]
+ },
+ "full": "index.html",
+ "updated": "Rotas · Rota da Picanha"
+};
+</script>
+<script src="https://fcarvalhodev.github.io/rotas/jogos/jogo.js"></script>
+</body></html>
